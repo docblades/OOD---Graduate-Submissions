@@ -4,6 +4,8 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using System.Web.Routing;
+using System.Data.Entity;
+using GraduateSubmissionsMVC.Models;
 
 namespace GraduateSubmissionsMVC
 {
@@ -35,6 +37,11 @@ namespace GraduateSubmissionsMVC
 
             RegisterGlobalFilters(GlobalFilters.Filters);
             RegisterRoutes(RouteTable.Routes);
+
+            //always drop tables//
+            //Database.SetInitializer(new DropCreateDatabaseAlways<GraduateContext>());
+            //drop tables if model changes
+            Database.SetInitializer<GraduateContext>(new DropCreateDatabaseIfModelChanges<GraduateContext>());
         }
     }
 }

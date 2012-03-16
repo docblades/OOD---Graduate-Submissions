@@ -30,12 +30,6 @@ namespace GraduateSubmissionsMVC.Tests.Controllers
         {
             // Arrange
             HomeController controller = new HomeController();
-
-            // Act
-            ViewResult result = controller.About() as ViewResult;
-
-            // Assert
-            Assert.IsNotNull(result);
         }
     }
 }
