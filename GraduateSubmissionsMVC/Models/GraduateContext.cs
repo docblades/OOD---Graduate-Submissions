@@ -11,6 +11,6 @@ namespace GraduateSubmissionsMVC.Models
     public class GraduateContext : DbContext
     {
         public DbSet<DepartmentModel> DepartmentModel { get; set; }
-        public DbSet<TransitionCourse> TransitionCourse { get; set; }
+        public DbSet<TransitionCourseModel> TransitionCourse { get; set; }
     }
 }

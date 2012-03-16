@@ -44,6 +44,9 @@ namespace GraduateSubmissionsMVC.Models
 
     public class RegisterModel
     {
+        [Key]
+        public int ID { get; set; }
+
         [Required]
         [Display(Name = "User name")]
         public string UserName { get; set; }
@@ -63,5 +66,15 @@ namespace GraduateSubmissionsMVC.Models
         [Display(Name = "Confirm password")]
         [Compare("Password", ErrorMessage = "The password and confirmation password do not match.")]
         public string ConfirmPassword { get; set; }
+
+        [Required]
+        [Display(Name = "Role")]
+        public string Role { get; set; }
+
+        [Required]
+        [Display(Name = "Department")]
+        public int DepartmentID { get; set; }
+
+        public virtual DepartmentModel DepartmentModel { get; set; }
     }
 }

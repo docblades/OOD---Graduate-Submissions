@@ -27,7 +27,7 @@ namespace GraduateSubmissionsMVC.Controllers
 
         public ViewResult Details(int id)
         {
-            TransitionCourse transitioncourse = db.TransitionCourse.Find(id);
+            TransitionCourseModel transitioncourse = db.TransitionCourse.Find(id);
             return View(transitioncourse);
         }
 
@@ -44,7 +44,7 @@ namespace GraduateSubmissionsMVC.Controllers
         // POST: /TransitionCourse/Create
 
         [HttpPost]
-        public ActionResult Create(TransitionCourse transitioncourse)
+        public ActionResult Create(TransitionCourseModel transitioncourse)
         {
             if (ModelState.IsValid)
             {
@@ -62,7 +62,7 @@ namespace GraduateSubmissionsMVC.Controllers
  
         public ActionResult Edit(int id)
         {
-            TransitionCourse transitioncourse = db.TransitionCourse.Find(id);
+            TransitionCourseModel transitioncourse = db.TransitionCourse.Find(id);
             ViewBag.DepartmentID = new SelectList(db.DepartmentModel, "ID", "Name", transitioncourse.DepartmentID);
             return View(transitioncourse);
         }
@@ -71,7 +71,7 @@ namespace GraduateSubmissionsMVC.Controllers
         // POST: /TransitionCourse/Edit/5
 
         [HttpPost]
-        public ActionResult Edit(TransitionCourse transitioncourse)
+        public ActionResult Edit(TransitionCourseModel transitioncourse)
         {
             if (ModelState.IsValid)
             {
@@ -88,7 +88,7 @@ namespace GraduateSubmissionsMVC.Controllers
  
         public ActionResult Delete(int id)
         {
-            TransitionCourse transitioncourse = db.TransitionCourse.Find(id);
+            TransitionCourseModel transitioncourse = db.TransitionCourse.Find(id);
             return View(transitioncourse);
         }
 
@@ -98,7 +98,7 @@ namespace GraduateSubmissionsMVC.Controllers
         [HttpPost, ActionName("Delete")]
         public ActionResult DeleteConfirmed(int id)
         {            
-            TransitionCourse transitioncourse = db.TransitionCourse.Find(id);
+            TransitionCourseModel transitioncourse = db.TransitionCourse.Find(id);
             db.TransitionCourse.Remove(transitioncourse);
             db.SaveChanges();
             return RedirectToAction("Index");

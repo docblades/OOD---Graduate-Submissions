@@ -5,3 +5,7 @@
 else {
     @:[ @Html.ActionLink("Log On", "LogOn", "Account") ]
 }
+@if (Request.IsAuthenticated && User.IsInRole("Sys Admin"))
+{
+    @Html.ActionLink("Settings", "Index", "SysAdmin", null, new { @class = "navlinks" })
+}

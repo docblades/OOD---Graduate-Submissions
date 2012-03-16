@@ -9,7 +9,7 @@ namespace GraduateSubmissionsMVC.Models
 {
     //a typical school course model
 
-    public class TransitionCourse
+    public class TransitionCourseModel
     {
         [Key]
         public int ID { get; set; }

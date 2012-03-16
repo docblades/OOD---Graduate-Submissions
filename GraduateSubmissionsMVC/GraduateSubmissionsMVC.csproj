@@ -90,7 +90,8 @@
     <Compile Include="Models\Account\AccountModels.cs" />
     <Compile Include="Models\General\DepartmentModel.cs" />
     <Compile Include="Models\GraduateContext.cs" />
-    <Compile Include="Models\General\TransitionCourse.cs" />
+    <Compile Include="Models\General\TransitionCourseModel.cs" />
+    <Compile Include="Models\SysAdmin\RolesList.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

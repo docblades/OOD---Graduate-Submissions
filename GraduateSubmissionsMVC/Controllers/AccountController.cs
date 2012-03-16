@@ -6,11 +6,14 @@ using System.Web.Mvc;
 using System.Web.Routing;
 using System.Web.Security;
 using GraduateSubmissionsMVC.Models;
+using GraduateSubmissionsMVC.Models.SysAdmin;
 
 namespace GraduateSubmissionsMVC.Controllers
 {
     public class AccountController : Controller
     {
+
+        GraduateContext db = new GraduateContext();
 
         //
         // GET: /Account/LogOn
@@ -66,6 +69,12 @@ namespace GraduateSubmissionsMVC.Controllers
 
         public ActionResult Register()
         {
+            //set up the drop down list for roles
+            RolesList roleslist = new RolesList();
+            ViewBag.roleslist = new SelectList(roleslist.Roles);
+
+            ViewBag.DepartmentID = new SelectList(db.DepartmentModel, "ID", "Name");
+
             return View();
         }
 
@@ -81,6 +90,10 @@ namespace GraduateSubmissionsMVC.Controllers
                 MembershipCreateStatus createStatus;
                 Membership.CreateUser(model.UserName, model.Password, model.Email, null, null, true, null, out createStatus);
 
+                //attempt to add a role to a user
+                string[] s = new string [] { model.UserName };
+                Roles.AddUsersToRole(s, model.Role);
+
                 if (createStatus == MembershipCreateStatus.Success)
                 {
                     FormsAuthentication.SetAuthCookie(model.UserName, false /* createPersistentCookie */);
@@ -91,6 +104,12 @@ namespace GraduateSubmissionsMVC.Controllers
                     ModelState.AddModelError("", ErrorCodeToString(createStatus));
                 }
             }
+
+            //set up the drop down list for roles
+            RolesList roleslist = new RolesList();
+            ViewBag.roleslist = new SelectList(roleslist.Roles);
+
+            ViewBag.DepartmentID = new SelectList(db.DepartmentModel, "ID", "Name");
 
             // If we got this far, something failed, redisplay form
             return View(model);
