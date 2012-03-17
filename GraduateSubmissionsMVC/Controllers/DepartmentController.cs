@@ -45,13 +45,24 @@ namespace GraduateSubmissionsMVC.Controllers
         [HttpPost]
         public ActionResult Create(DepartmentModel departmentmodel)
         {
+            //departments must be unique
+            var query = from a in db.DepartmentModel
+                        where departmentmodel.Name.Equals(a.Name)
+                        select a;
+
             if (ModelState.IsValid)
             {
-                db.DepartmentModel.Add(departmentmodel);
-                db.SaveChanges();
-                return RedirectToAction("Index");  
+                if (query.Count() != 0)
+                {
+                    ModelState.AddModelError(string.Empty, "Department name already exists!");
+                }
+                else
+                {
+                    db.DepartmentModel.Add(departmentmodel);
+                    db.SaveChanges();
+                    return RedirectToAction("Index");
+                }
             }
-
             return View(departmentmodel);
         }
         

@@ -2,9 +2,21 @@
     ViewBag.Title = "SysAdmin";
 }
 
-<h2>System Administrator's Dashboard</h2>
+<h2>System Administrator</h2>
+@Html.ActionLink("Add New Term", "Create", "Term")
+<br />
 @Html.ActionLink("Add New Department", "Create", "Department")
 <br />
 @Html.ActionLink("Add Transition Course", "Create", "TransitionCourse")
 <br />
 @Html.ActionLink("Add Accounts", "Register", "Account")
+
+<br />
+<br />
+@Html.ActionLink("View Terms", "Index", "Term")
+<br />
+@Html.ActionLink("View Departments", "Index", "Department")
+<br />
+@Html.ActionLink("View Transition Courses", "Index", "TransitionCourse")
+<br />
+@Html.ActionLink("View Users", "Users", "Account")

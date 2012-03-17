@@ -1,0 +1,40 @@
+﻿@model IEnumerable<GraduateSubmissionsMVC.Models.Users>
+
+@{
+    ViewBag.Title = "Users";
+}
+
+<h2>Users</h2>
+
+<table>
+    <tr>
+        <th>
+            User Name
+        </th>
+        <th>
+            Email Address
+        </th>
+        <th>
+            Roles
+        </th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.UserName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.EmailAddress)
+        </td>
+
+        @foreach (string role in item.Roles)
+        {
+            <td>
+            @Html.Raw(role) <br />
+            </td>
+        }
+    </tr>
+}
+
+</table>

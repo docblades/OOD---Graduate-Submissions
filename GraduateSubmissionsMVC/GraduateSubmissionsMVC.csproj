@@ -83,15 +83,18 @@
     <Compile Include="Controllers\DepartmentController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\SysAdminController.cs" />
+    <Compile Include="Controllers\TermController.cs" />
     <Compile Include="Controllers\TransitionCourseController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\Account\AccountModels.cs" />
     <Compile Include="Models\General\DepartmentModel.cs" />
+    <Compile Include="Models\General\TermModel.cs" />
     <Compile Include="Models\GraduateContext.cs" />
     <Compile Include="Models\General\TransitionCourseModel.cs" />
     <Compile Include="Models\SysAdmin\RolesList.cs" />
+    <Compile Include="Models\Users.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -200,6 +203,24 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Views\TransitionCourse\Delete.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Account\Users.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Term\Index.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Term\Details.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Term\Create.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Term\Edit.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Term\Delete.cshtml" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" />

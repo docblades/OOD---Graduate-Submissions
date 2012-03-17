@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Data.Entity;
+using GraduateSubmissionsMVC.Models.General;
 
 namespace GraduateSubmissionsMVC.Models
 {
@@ -12,5 +13,6 @@ namespace GraduateSubmissionsMVC.Models
     {
         public DbSet<DepartmentModel> DepartmentModel { get; set; }
         public DbSet<TransitionCourseModel> TransitionCourse { get; set; }
+        public DbSet<TermModel> Term { get; set; }
     }
 }

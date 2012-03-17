@@ -169,6 +169,20 @@ namespace GraduateSubmissionsMVC.Controllers
             return View();
         }
 
+        //view all the user accounts
+        public ActionResult Users()
+        {
+            List<Users> userlist = new List<Users>();
+
+            foreach (var item in Membership.GetAllUsers())
+            {
+                MembershipUser user = (MembershipUser)item;
+                userlist.Add(new Users { EmailAddress = user.Email, UserName = user.UserName, Roles = Roles.GetRolesForUser(user.UserName) });
+            }
+
+            return View(userlist);
+        }
+
         #region Status Codes
         private static string ErrorCodeToString(MembershipCreateStatus createStatus)
         {
