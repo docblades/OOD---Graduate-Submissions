@@ -1,0 +1,14 @@
+Upgrade NuGet!
+
+You will likely have to:
+
+1) Run VS as Administrator
+2) Tools > Administrator > NuGet > Uninstall
+3) Restart VS
+4) Install NuGet
+
+Then
+
+5) Build the solution
+
+A build should trigger NuGet to download all dependencies into your packages folder

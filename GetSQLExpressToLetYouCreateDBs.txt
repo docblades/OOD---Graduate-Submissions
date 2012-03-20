@@ -1,0 +1,30 @@
+I think I figured it out.  I'm now having a problem importing data (more on that later), but at least I can create a database.  Here's what I did:
+
+ 
+
+1.  shut down SQL Server from services
+
+2.  open cmd window (as admin) and run single-user mode as local admin with this command:
+
+"c:\Program Files\Microsoft SQL Server\MSSQL10.SQLEXPRESS\MSSQL\Binn\sqlservr.exe" -m -s SQLEXPRESS
+
+3.  open another cmd window (as admin)
+
+4.  open sqlcmd:
+
+sqlcmd -S .\SQLEXPRESS
+
+Now add the sysadmin user:
+
+a.  sp_addsrvrolemember 'domain\user', 'sysadmin'
+
+b.  GO
+
+5.  now Ctrl+C the single-user mode from the first cmd window to kill SQL Server.  Now restart it from services the normal way.  Log into Management Studio and the user you created should be listed under logins with the credential of "sysadmin."
+
+
+Before this, I was getting the error "Only one administrator can connect at this time. (Microsoft SQL Server, Error: 18461)."  What the error utterly fails to tell you is that any connection to single-user mode qualifies as an administrator connection.  In effect, simply opening Management Studio in single-user mode was causing an administrator to connect.  The only way to do anything in single-user mode (it appears) is to do it thru sqlcmd.
+
+So now I'm a sysadmin on my own machine!  Amazing, isn't it?  Unfortunately, now I'm having problems importing data.  The error I get is: "The value could not be converted because of a potential loss of data."  Again, a completely bewildering, unhelpful, and potentially misleading error message.  But like I said, I've made progress.  However, I fully expect to fruitlessly google this new error for at least three hours tomorrow.
+
+http://social.msdn.microsoft.com/Forums/en-US/sqlexpress/thread/76fc84f9-437c-4e71-ba3d-3c9ae794a7c4
