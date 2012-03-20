@@ -15,6 +15,6 @@ namespace GraduateSubmissionsMVC.Models.General
         [Key]
         public int ID { get; set; }
         public string Name { get; set; }
-        public string Date { get; set; }
+        public DateTime Date { get; set; }
     }
 }

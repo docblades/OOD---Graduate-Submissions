@@ -1,0 +1,53 @@
+﻿@model GraduateSubmissionsMVC.Models.General.GraduateApplicationV1
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+<h2>Delete</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<fieldset>
+    <legend>GraduateApplicationV1</legend>
+
+    <div class="display-label">ApplicantName</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.ApplicantName)
+    </div>
+
+    <div class="display-label">ApplicantStudentId</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.ApplicantStudentId)
+    </div>
+
+    <div class="display-label">PhoneNumber</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.PhoneNumber)
+    </div>
+
+    <div class="display-label">Term</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Term)
+    </div>
+
+    <div class="display-label">EntryDate</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.EntryDate)
+    </div>
+
+    <div class="display-label">ApplicationContent</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.ApplicationContent)
+    </div>
+
+    <div class="display-label">Department</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Department)
+    </div>
+</fieldset>
+@using (Html.BeginForm()) {
+    <p>
+        <input type="submit" value="Delete" /> |
+        @Html.ActionLink("Back to List", "Index")
+    </p>
+}
