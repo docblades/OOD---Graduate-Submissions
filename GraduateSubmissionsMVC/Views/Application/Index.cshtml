@@ -1,0 +1,80 @@
+﻿@model IEnumerable<GraduateSubmissionsMVC.Models.ApplicationViewModel>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table>
+    <tr>
+        <th>
+            Term
+        </th>
+        <th>
+            First Name
+        </th>
+        <th>
+            Last Name
+        </th>
+        <th>
+            Number
+        </th>
+        <th>
+            E-mail
+        </th>
+        <th>
+            Personal Info
+        </th>
+        <th>
+            Applied Before
+        </th>
+        <th>
+            Date Applied Before
+        </th>
+        <th>
+            Departments
+        </th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Term.Name)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Application.firstname)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Application.lastname)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Application.number)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Application.email)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Application.PersonalInfo)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Application.AppliedBefore)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Application.DateAppliedBefore)
+        </td>
+
+        <td>
+            @for (int i = 0, k = 1; i < item.DepartmentList.Count; i++, k++)
+            {
+                @Html.Raw(k + ". " + item.DepartmentList[i].Name + "<br \\>")
+            }
+        </td>
+        
+    </tr>
+}
+
+</table>
