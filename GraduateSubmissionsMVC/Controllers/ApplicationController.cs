@@ -33,7 +33,11 @@ namespace GraduateSubmissionsMVC.Controllers
                                 DepartmentList = (from c in db.DepartmentModel
                                                   join a in db.ApplicationDepartment on app.ID equals a.ApplicationID
                                                   where c.ID == a.DepartmentID
-                                                  select c).ToList()
+                                                  select c).ToList(),
+                                Term = (from a in db.Term
+                                        join b in db.Application on a.ID equals b.ID
+                                        where a.ID == b.ID
+                                        select a).ToList()[0]
                             });
             }
                                             
@@ -56,9 +60,9 @@ namespace GraduateSubmissionsMVC.Controllers
 
         public ActionResult Create()
         {
-            ViewBag.TermID = new SelectList(db.Term, "ID", "Name");
+            //ViewBag.TermID = new SelectList(db.Term, "ID", "Name");
 
-            //ViewBag.termList = avm.TermList;
+            ViewBag.termList = avm.TermList;
             ViewBag.departmentList = avm.DepartmentNamesList;
             
             return View();
@@ -75,19 +79,24 @@ namespace GraduateSubmissionsMVC.Controllers
                 db.Application.Add(_application.Application);
                 db.SaveChanges();
 
-               
-                foreach (string s in Departments)
+                if (Departments == null)
                 {
-                        db.ApplicationDepartment.Add(new ApplicationDepartment() { DepartmentID = Int32.Parse(s), ApplicationID = _application.Application.ID });
-                }
-
-                    db.SaveChanges();
                     return RedirectToAction("Index");
                 }
+                else
+                {
+                    foreach (string s in Departments)
+                    {
+                        db.ApplicationDepartment.Add(new ApplicationDepartment() { DepartmentID = Int32.Parse(s), ApplicationID = _application.Application.ID });
+                    }
+                }
+                db.SaveChanges();
+                return RedirectToAction("Index");
+            }
             
-
             //ViewBag.TermID = new SelectList(db.Term, "ID", "Name", application.Application.TermID);
-            //ViewBag.departmentList = avm.DepartmentNamesList;
+            ViewBag.termList = avm.TermList;
+            ViewBag.departmentList = avm.DepartmentNamesList;
             return View(_application);
         }
         

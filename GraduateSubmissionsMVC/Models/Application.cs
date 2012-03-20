@@ -11,6 +11,7 @@ namespace GraduateSubmissionsMVC.Models
     {
         [Key]
         public int ID { get; set; }
+        public int TermID { get; set; }
         [Display(Name = "First name")]
         public string firstname { get; set; }
         [Display(Name = "Last name")]
@@ -26,7 +27,7 @@ namespace GraduateSubmissionsMVC.Models
         [Display(Name = "If yes, date applied before")]
         public string DateAppliedBefore { get; set; }
 
-        
+        public TermModel Term { get; set; }
         public ICollection<DepartmentModel> Department { get; set; }
         public ICollection<PDFurlModel> PDFurlModel { get; set; }
     }

@@ -43,7 +43,7 @@
 @foreach (var item in Model) {
     <tr>
         <td>
-            @Html.DisplayFor(modelItem => item.Term.Name)
+            @Html.Raw(item.Term.Name + " " + item.Term.Date)
         </td>
         <td>
             @Html.DisplayFor(modelItem => item.Application.firstname)

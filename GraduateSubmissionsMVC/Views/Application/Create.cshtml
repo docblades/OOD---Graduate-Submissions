@@ -14,6 +14,8 @@
     <fieldset>
         <legend>Application</legend>
 
+            @Html.DropDownListFor(model => model.Application.TermID, (List<SelectListItem>)ViewBag.TermList, string.Empty)
+            
         <div class="editor-label">
             @Html.LabelFor(model => model.Application.firstname)
         </div>
@@ -76,7 +78,7 @@
             @Html.Raw("Departments applying for...")
         </div>
         <div class="editor-field">
-        @Html.CheckBoxList("Departments", (List<SelectListItem>)ViewBag.departmentList, Position.Horizontal)
+            @Html.CheckBoxList("Departments", (List<SelectListItem>)ViewBag.departmentList, Position.Horizontal)
         </div>
 
         <p>

@@ -16,5 +16,7 @@ namespace GraduateSubmissionsMVC.Models.General
         public int ID { get; set; }
         public string Name { get; set; }
         public string Date { get; set; }
+
+        public ICollection<Application> Application { get; set; }
     }
 }
