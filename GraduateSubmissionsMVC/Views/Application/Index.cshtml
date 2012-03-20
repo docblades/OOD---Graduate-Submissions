@@ -4,10 +4,10 @@
     ViewBag.Title = "Index";
 }
 
-<h2>Index</h2>
+<h2>Applications</h2>
 
 <p>
-    @Html.ActionLink("Create New", "Create")
+    @Html.ActionLink("Add Application", "Create")
 </p>
 <table>
     <tr>
@@ -61,7 +61,14 @@
             @Html.DisplayFor(modelItem => item.Application.PersonalInfo)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.Application.AppliedBefore)
+            @if (item.Application.AppliedBefore)
+            {
+                @Html.Raw("Yes")
+            }
+            else
+            {
+                @Html.Raw("No")
+            }
         </td>
         <td>
             @Html.DisplayFor(modelItem => item.Application.DateAppliedBefore)

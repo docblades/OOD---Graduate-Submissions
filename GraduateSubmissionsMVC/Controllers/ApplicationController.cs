@@ -6,6 +6,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using GraduateSubmissionsMVC.Models;
+using System.IO;
 
 namespace GraduateSubmissionsMVC.Controllers
 { 
@@ -44,6 +45,28 @@ namespace GraduateSubmissionsMVC.Controllers
 
             //return View(application.ToList());
             return View(avmList);
+        }
+
+        //upload
+        public ActionResult Upload()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        public ActionResult Upload(IEnumerable<HttpPostedFileBase> files)
+        {
+            foreach(string file in Request.Files)
+            {
+                HttpPostedFileBase hpf = Request.Files[file] as HttpPostedFileBase;
+                if (hpf.ContentLength > 0)
+                {
+                    var fileName = Path.GetFileName(hpf.FileName);
+                    var path = Path.Combine(Server.MapPath("~/App_Data/uploads/"), fileName);
+                    hpf.SaveAs(path);
+                }
+            }
+            return RedirectToAction("Index");
         }
 
         //
