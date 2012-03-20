@@ -12,8 +12,10 @@ namespace GraduateSubmissionsMVC.Models
         [Key]
         public int ID { get; set; }
         public int TermID { get; set; }
+        [Required]
         [Display(Name = "First name")]
         public string firstname { get; set; }
+        [Required]
         [Display(Name = "Last name")]
         public string lastname { get; set; }
         [Display(Name = "Phone number")]
@@ -30,5 +32,7 @@ namespace GraduateSubmissionsMVC.Models
         public TermModel Term { get; set; }
         public ICollection<DepartmentModel> Department { get; set; }
         public ICollection<PDFurlModel> PDFurlModel { get; set; }
+
+        
     }
 }
