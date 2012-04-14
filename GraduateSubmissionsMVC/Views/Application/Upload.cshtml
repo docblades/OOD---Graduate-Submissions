@@ -1,9 +1,9 @@
-﻿@{
+﻿@model GraduateSubmissionsMVC.Models.UploadViewModel
+@{
     ViewBag.Title = "Upload";
 }
 
-<h2>Upload File</h2>
-
+<h2>Upload File(s) for @Html.Raw(Model.Application.firstname + " ") @Html.Raw(Model.Application.lastname)</h2>
 
 @FileUpload.GetHtml("fileUpload", 5)
 

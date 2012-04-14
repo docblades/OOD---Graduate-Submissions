@@ -7,6 +7,7 @@ using System.Web;
 using System.Web.Mvc;
 using GraduateSubmissionsMVC.Models;
 using System.IO;
+using GraduateSubmissionsMVC.Models.General;
 
 namespace GraduateSubmissionsMVC.Controllers
 { 
@@ -48,13 +49,17 @@ namespace GraduateSubmissionsMVC.Controllers
         }
 
         //upload
-        public ActionResult Upload()
+        public ActionResult Upload(int id)
         {
-            return View();
+            UploadViewModel avm_upload = new UploadViewModel();
+            avm_upload.Application = db.Application.Find(id);
+            avm_upload.PdfUrl = new PDFurlModel();
+
+            return View(avm_upload);
         }
 
         [HttpPost]
-        public ActionResult Upload(IEnumerable<HttpPostedFileBase> files)
+        public ActionResult Upload()
         {
             foreach(string file in Request.Files)
             {
@@ -63,6 +68,13 @@ namespace GraduateSubmissionsMVC.Controllers
                 {
                     var fileName = Path.GetFileName(hpf.FileName);
                     var path = Path.Combine(Server.MapPath("~/App_Data/uploads/"), fileName);
+
+                    //copy path url to db
+                    //_upload.PdfUrl.Url = path;
+                    //_upload.PdfUrl.ApplicationID = _upload.Application.ID;
+                    //db.PDFurlModel.Add(_upload.PdfUrl);
+
+                    //db.SaveChanges();
                     hpf.SaveAs(path);
                 }
             }
@@ -87,6 +99,12 @@ namespace GraduateSubmissionsMVC.Controllers
 
             ViewBag.termList = avm.TermList;
             ViewBag.departmentList = avm.DepartmentNamesList;
+
+            //number of elements in DepartmentList
+            ViewBag.DepartmentListCounter = avm.NumberofElementsDepartmentNamesList;
+            //number of elements in TermList
+            ViewBag.TermListCounter = avm.NumberofElementsTermList;
+            
             
             return View();
         } 
@@ -104,6 +122,7 @@ namespace GraduateSubmissionsMVC.Controllers
 
                 if (Departments == null)
                 {
+                    //return RedirectToAction("Upload", new { id = _application.Application.ID });
                     return RedirectToAction("Index");
                 }
                 else
@@ -114,12 +133,19 @@ namespace GraduateSubmissionsMVC.Controllers
                     }
                 }
                 db.SaveChanges();
+
+                //return RedirectToAction("Upload", new { id = _application.Application.ID });
                 return RedirectToAction("Index");
             }
             
             //ViewBag.TermID = new SelectList(db.Term, "ID", "Name", application.Application.TermID);
             ViewBag.termList = avm.TermList;
             ViewBag.departmentList = avm.DepartmentNamesList;
+
+            //number of elements in DepartmentList
+            ViewBag.DepartmentListCounter = avm.NumberofElementsDepartmentNamesList;
+            //number of elements in TermList
+            ViewBag.TermListCounter = avm.NumberofElementsTermList;
             return View(_application);
         }
         

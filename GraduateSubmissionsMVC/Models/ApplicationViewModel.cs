@@ -20,6 +20,25 @@ namespace GraduateSubmissionsMVC.Models
         //list of Departments
         public List<DepartmentModel> DepartmentList { get; set; }
 
+        //number of elements in DepartmentNamesList
+        public int NumberofElementsDepartmentNamesList 
+        { 
+            get
+            {
+                return DepartmentNamesList.Count();
+            }
+        }
+
+
+        //number of elements in TermList
+        public int NumberofElementsTermList
+        {
+            get
+            {
+                return TermList.Count();
+            }
+        }
+
         public List<SelectListItem> DepartmentNamesList
         {
             get

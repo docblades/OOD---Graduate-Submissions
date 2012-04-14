@@ -9,12 +9,27 @@
 <script src="@Url.Content("~/Scripts/jquery.validate.min.js")" type="text/javascript"></script>
 <script src="@Url.Content("~/Scripts/jquery.validate.unobtrusive.min.js")" type="text/javascript"></script>
 
-@using (Html.BeginForm()) {
+@if (ViewBag.DepartmentListCounter == 0 || ViewBag.TermListCounter == 0)
+{
+    @Html.Raw("No School Terms Exist.");
+    @Html.Raw("<br /> No School Departments Exist.");
+    @Html.Raw("<br /> See your Administrator for further assistance. <br />");
+}
+else
+{
+using (Html.BeginForm())
+{
     @Html.ValidationSummary(true)
     <fieldset>
         <legend>Application</legend>
 
+        <div class="editor-label">
+            @Html.Raw("School Term")
+        </div>
+        <div class="editor-field">
             @Html.DropDownListFor(model => model.Application.TermID, (List<SelectListItem>)ViewBag.TermList, string.Empty)
+        </div>
+            
             
         <div class="editor-label">
             @Html.LabelFor(model => model.Application.firstname)
@@ -30,6 +45,14 @@
         <div class="editor-field">
             @Html.EditorFor(model => model.Application.lastname)
             @Html.ValidationMessageFor(model => model.Application.lastname)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Application.studentNumber)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.Application.studentNumber)
+            @Html.ValidationMessageFor(model => model.Application.studentNumber)
         </div>
 
         <div class="editor-label">
@@ -86,7 +109,7 @@
         </p>
     </fieldset>
 }
-
+}
 <div>
     @Html.ActionLink("Back to List", "Index")
 </div>

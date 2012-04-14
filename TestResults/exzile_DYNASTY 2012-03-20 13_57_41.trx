@@ -1,0 +1,59 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<TestRun id="08bc28d0-bc8a-476d-9ce4-4ebc0c445a31" name="exzile@DYNASTY 2012-03-20 13:57:41" runUser="dynasty\exzile" xmlns="http://microsoft.com/schemas/VisualStudio/TeamTest/2010">
+  <TestSettings name="Default Test Settings" id="b5cf71cb-d7d7-45c5-b9a3-25374f9f1eac">
+    <Deployment runDeploymentRoot="exzile_DYNASTY 2012-03-20 13_57_41">
+      <DeploymentItem filename="C:\Users\exzile\Desktop\OOD---Graduate-Submissions\packages\EntityFramework.4.3.1\lib\net40\EntityFramework.dll" />
+      <DeploymentItem filename="C:\Users\exzile\Desktop\OOD---Graduate-Submissions\packages\Ninject.2.2.1.4\lib\net40-Full\Ninject.dll" />
+      <DeploymentItem filename="C:\Users\exzile\Desktop\OOD---Graduate-Submissions\packages\Ninject.Web.2.2.0.4\lib\net40-Full\Ninject.Web.dll" />
+      <DeploymentItem filename="C:\Users\exzile\Desktop\OOD---Graduate-Submissions\packages\microsoft-web-helpers.1.15\lib\Microsoft.Web.Helpers.dll" />
+      <DeploymentItem filename="C:\Users\exzile\Desktop\OOD---Graduate-Submissions\packages\Ninject.MVC3.2.2.2.0\lib\net40-Full\Ninject.Web.Mvc.dll" />
+      <DeploymentItem filename="C:\Users\exzile\Desktop\OOD---Graduate-Submissions\packages\Microsoft.Web.Infrastructure.1.0.0.0\lib\net40\Microsoft.Web.Infrastructure.dll" />
+      <DeploymentItem filename="C:\Users\exzile\Desktop\OOD---Graduate-Submissions\packages\MvcCheckBoxList.1.4.2.3\lib\MvcCheckBoxList.dll" />
+      <DeploymentItem filename="C:\Users\exzile\Desktop\OOD---Graduate-Submissions\GraduateSubmissionsMVC\bin\GraduateSubmissionsMVC.dll" />
+      <DeploymentItem filename="C:\Users\exzile\Desktop\OOD---Graduate-Submissions\packages\WebActivator.1.4.4\lib\net40\WebActivator.dll" />
+      <DeploymentItem filename="C:\Users\exzile\Desktop\OOD---Graduate-Submissions\packages\libphonenumber-csharp.4.6.0.13\lib\PhoneNumbers.dll" />
+    </Deployment>
+    <Execution>
+      <TestTypeSpecific />
+      <AgentRule name="Execution Agents">
+      </AgentRule>
+    </Execution>
+  </TestSettings>
+  <Times creation="2012-03-20T13:57:41.3118000-04:00" queuing="2012-03-20T13:57:43.3418000-04:00" start="2012-03-20T13:57:43.4288000-04:00" finish="2012-03-20T13:57:44.5078000-04:00" />
+  <ResultSummary outcome="Failed">
+    <Counters total="2" executed="2" passed="1" error="0" failed="1" timeout="0" aborted="0" inconclusive="0" passedButRunAborted="0" notRunnable="0" notExecuted="0" disconnected="0" warning="0" completed="0" inProgress="0" pending="0" />
+  </ResultSummary>
+  <TestDefinitions>
+    <UnitTest name="About" storage="c:\users\exzile\desktop\ood---graduate-submissions\graduatesubmissionsmvc.tests\bin\debug\graduatesubmissionsmvc.tests.dll" id="cd9f4948-8869-519a-f69d-eeb3cab06cf6">
+      <Execution id="bb49fee3-9442-453c-8061-287debd716f6" />
+      <TestMethod codeBase="C:/Users/exzile/Desktop/OOD---Graduate-Submissions/GraduateSubmissionsMVC.Tests/bin/Debug/GraduateSubmissionsMVC.Tests.DLL" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="GraduateSubmissionsMVC.Tests.Controllers.HomeControllerTest, GraduateSubmissionsMVC.Tests, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" name="About" />
+    </UnitTest>
+    <UnitTest name="Index" storage="c:\users\exzile\desktop\ood---graduate-submissions\graduatesubmissionsmvc.tests\bin\debug\graduatesubmissionsmvc.tests.dll" id="b0d12e50-4621-2448-2782-d5779897eecd">
+      <Execution id="e2fa15c1-e611-491e-ba02-54b5fae00743" />
+      <TestMethod codeBase="C:/Users/exzile/Desktop/OOD---Graduate-Submissions/GraduateSubmissionsMVC.Tests/bin/Debug/GraduateSubmissionsMVC.Tests.DLL" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="GraduateSubmissionsMVC.Tests.Controllers.HomeControllerTest, GraduateSubmissionsMVC.Tests, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" name="Index" />
+    </UnitTest>
+  </TestDefinitions>
+  <TestLists>
+    <TestList name="Results Not in a List" id="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestList name="All Loaded Results" id="19431567-8539-422a-85d7-44ee4e166bda" />
+  </TestLists>
+  <TestEntries>
+    <TestEntry testId="b0d12e50-4621-2448-2782-d5779897eecd" executionId="e2fa15c1-e611-491e-ba02-54b5fae00743" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="cd9f4948-8869-519a-f69d-eeb3cab06cf6" executionId="bb49fee3-9442-453c-8061-287debd716f6" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+  </TestEntries>
+  <Results>
+    <UnitTestResult executionId="e2fa15c1-e611-491e-ba02-54b5fae00743" testId="b0d12e50-4621-2448-2782-d5779897eecd" testName="Index" computerName="DYNASTY" duration="00:00:00.2640834" startTime="2012-03-20T13:57:43.5028000-04:00" endTime="2012-03-20T13:57:44.4438000-04:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Failed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="e2fa15c1-e611-491e-ba02-54b5fae00743">
+      <Output>
+        <ErrorInfo>
+          <Message>Assert.AreEqual failed. Expected:&lt;Welcome to ASP.NET MVC!&gt;. Actual:&lt;(null)&gt;. </Message>
+          <StackTrace>   at CallSite.Target(Closure , CallSite , Type , String , Object )
+   at System.Dynamic.UpdateDelegates.UpdateAndExecuteVoid3[T0,T1,T2](CallSite site, T0 arg0, T1 arg1, T2 arg2)
+   at GraduateSubmissionsMVC.Tests.Controllers.HomeControllerTest.Index() in C:\Users\exzile\Desktop\OOD---Graduate-Submissions\GraduateSubmissionsMVC.Tests\Controllers\HomeControllerTest.cs:line 25
+</StackTrace>
+        </ErrorInfo>
+      </Output>
+    </UnitTestResult>
+    <UnitTestResult executionId="bb49fee3-9442-453c-8061-287debd716f6" testId="cd9f4948-8869-519a-f69d-eeb3cab06cf6" testName="About" computerName="DYNASTY" duration="00:00:00.0001746" startTime="2012-03-20T13:57:44.4548000-04:00" endTime="2012-03-20T13:57:44.4598000-04:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="bb49fee3-9442-453c-8061-287debd716f6">
+    </UnitTestResult>
+  </Results>
+</TestRun>

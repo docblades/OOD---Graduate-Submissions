@@ -111,6 +111,7 @@
     <Compile Include="Models\GraduateContext.cs" />
     <Compile Include="Models\General\TransitionCourseModel.cs" />
     <Compile Include="Models\SysAdmin\RolesList.cs" />
+    <Compile Include="Models\UploadViewModel.cs" />
     <Compile Include="Models\Users.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
