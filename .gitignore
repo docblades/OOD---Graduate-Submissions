@@ -6,3 +6,5 @@ obj/
 packages/
 App_Data/
 *.suo
+.ldf
+.MDF
