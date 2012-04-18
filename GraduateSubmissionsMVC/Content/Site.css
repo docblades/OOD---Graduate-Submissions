@@ -7,6 +7,15 @@ CUSTOM STYLES
     width: 500px;
 }
 
+.editor-box
+{
+    background-color: #DCCCAA;
+    color: #0F0F0F;
+    padding-left:10px;
+    font-weight:bold;
+    width:250px;
+}
+
 
 
 /*----------------------------------------------------------

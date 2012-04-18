@@ -34,9 +34,9 @@ namespace GraduateSubmissionsMVC.Models
         [Display(Name = "Student ID")]
         public string studentNumber { get; set; }
 
-        public TermModel Term { get; set; }
-        public ICollection<DepartmentModel> Department { get; set; }
-        public ICollection<PDFurlModel> PDFurlModel { get; set; }
+        public virtual TermModel Term { get; set; }
+        public virtual ICollection<DepartmentModel> Department { get; set; }
+        public virtual ICollection<PDFurlModel> PDFurlModel { get; set; }
 
         
     }

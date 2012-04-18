@@ -10,5 +10,6 @@ namespace GraduateSubmissionsMVC.Models
     {
         public Application Application { get; set; }
         public PDFurlModel PdfUrl { get; set; }
+        public int ApplicationID { get; set; }
     }
 }

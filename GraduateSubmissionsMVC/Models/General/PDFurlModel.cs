@@ -10,6 +10,8 @@ namespace GraduateSubmissionsMVC.Models.General
     {
         [Key]
         public int ID { get; set; }
+        // Foreign key to customer
+        [ForeignKey("Application")]
         public int ApplicationID { get; set; }
         public string Name { get; set; }
         public string Url { get; set; }

@@ -54,12 +54,12 @@ namespace GraduateSubmissionsMVC.Controllers
             UploadViewModel avm_upload = new UploadViewModel();
             avm_upload.Application = db.Application.Find(id);
             avm_upload.PdfUrl = new PDFurlModel();
-
+            avm_upload.ApplicationID = id;
             return View(avm_upload);
         }
 
         [HttpPost]
-        public ActionResult Upload()
+        public ActionResult Upload(UploadViewModel avm_upload)
         {
             foreach(string file in Request.Files)
             {
@@ -70,14 +70,12 @@ namespace GraduateSubmissionsMVC.Controllers
                     var path = Path.Combine(Server.MapPath("~/App_Data/uploads/"), fileName);
 
                     //copy path url to db
-                    //_upload.PdfUrl.Url = path;
-                    //_upload.PdfUrl.ApplicationID = _upload.Application.ID;
-                    //db.PDFurlModel.Add(_upload.PdfUrl);
-
-                    //db.SaveChanges();
+                    PDFurlModel _upload = new PDFurlModel() { Url = path, Name = "", ApplicationID = 1};
+                    db.PDFurlModel.Add(_upload);
                     hpf.SaveAs(path);
                 }
             }
+            db.SaveChanges();
             return RedirectToAction("Index");
         }
 
@@ -132,8 +130,22 @@ namespace GraduateSubmissionsMVC.Controllers
                         db.ApplicationDepartment.Add(new ApplicationDepartment() { DepartmentID = Int32.Parse(s), ApplicationID = _application.Application.ID });
                     }
                 }
-                db.SaveChanges();
 
+                foreach(string file in Request.Files)
+                {
+                    HttpPostedFileBase hpf = Request.Files[file] as HttpPostedFileBase;
+                    if (hpf.ContentLength > 0)
+                    {
+                        var fileName = Path.GetFileName(hpf.FileName);
+                        var path = Path.Combine(Server.MapPath("~/App_Data/uploads/"), fileName);
+
+                        //copy path url to db
+                        PDFurlModel _upload = new PDFurlModel() { Url = path, Name = "", ApplicationID = _application.Application.ID};
+                        db.PDFurlModel.Add(_upload);
+                        hpf.SaveAs(path);
+                    }
+                }
+                db.SaveChanges();
                 //return RedirectToAction("Upload", new { id = _application.Application.ID });
                 return RedirectToAction("Index");
             }

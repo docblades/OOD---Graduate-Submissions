@@ -101,7 +101,7 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\Account\AccountModels.cs" />
-    <Compile Include="Models\Application.cs" />
+    <Compile Include="Models\General\Application.cs" />
     <Compile Include="Models\ApplicationDepartment.cs" />
     <Compile Include="Models\ApplicationViewHelper.cs" />
     <Compile Include="Models\ApplicationViewModel.cs" />
@@ -110,6 +110,7 @@
     <Compile Include="Models\General\TermModel.cs" />
     <Compile Include="Models\GraduateContext.cs" />
     <Compile Include="Models\General\TransitionCourseModel.cs" />
+    <Compile Include="Models\Profile.cs" />
     <Compile Include="Models\SysAdmin\RolesList.cs" />
     <Compile Include="Models\UploadViewModel.cs" />
     <Compile Include="Models\Users.cs" />

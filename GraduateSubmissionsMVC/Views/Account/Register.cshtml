@@ -20,6 +20,22 @@
     <div>
         <fieldset>
             <legend>Set up an Account</legend>
+            
+            <div class="editor-label">
+                @Html.LabelFor(m => m.FirstName)
+            </div>
+            <div class="editor-field">
+                @Html.TextBoxFor(m => m.FirstName)
+                @Html.ValidationMessageFor(m => m.FirstName)
+            </div>
+
+            <div class="editor-label">
+                @Html.LabelFor(m => m.LastName)
+            </div>
+            <div class="editor-field">
+                @Html.TextBoxFor(m => m.LastName)
+                @Html.ValidationMessageFor(m => m.LastName)
+            </div>
 
             <div class="editor-label">
                 @Html.LabelFor(m => m.UserName)
@@ -30,28 +46,29 @@
             </div>
 
             <div class="editor-label">
+                @Html.LabelFor(m => m.Email)
+            </div>
+            <div class="editor-field">
+                @Html.TextBoxFor(m => m.Email)
+                @Html.ValidationMessageFor(m => m.Email)
+            </div>
+
+            <div class="editor-label">
                 @Html.Raw("User Role")            
             </div>
+
             <div class="editor-field">
                 @Html.DropDownListFor(model => model.Role, (SelectList)ViewBag.roleslist, string.Empty)
                 @Html.ValidationMessageFor(model => model.Role)
             </div>
 
             <div class="editor-label">
-                @Html.LabelFor(model => model.DepartmentID, "Department")
-
+                @Html.Raw("Department")            
             </div>
+
             <div class="editor-field">
-                @Html.DropDownList("DepartmentID", String.Empty)
+                @Html.DropDownListFor(model => model.DepartmentID, (SelectList)ViewBag.departmentID, string.Empty)
                 @Html.ValidationMessageFor(model => model.DepartmentID)
-            </div>
-
-            <div class="editor-label">
-                @Html.LabelFor(m => m.Email)
-            </div>
-            <div class="editor-field">
-                @Html.TextBoxFor(m => m.Email)
-                @Html.ValidationMessageFor(m => m.Email)
             </div>
 
             <div class="editor-label">

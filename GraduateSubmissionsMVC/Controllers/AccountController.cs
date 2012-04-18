@@ -97,6 +97,18 @@ namespace GraduateSubmissionsMVC.Controllers
                 if (createStatus == MembershipCreateStatus.Success)
                 {
                     FormsAuthentication.SetAuthCookie(model.UserName, false /* createPersistentCookie */);
+
+
+                    //add profile information
+                    var profile = Profile.GetProfile(model.UserName);
+                    profile.FirstName = model.FirstName;
+                    profile.LastName = model.LastName;
+                    profile.Department = (from a in db.DepartmentModel
+                                         where a.ID == model.DepartmentID
+                                         select a.Name).ToList()[0];
+                    profile.Save();
+
+
                     return RedirectToAction("Index", "Home");
                 }
                 else
