@@ -10,5 +10,10 @@ namespace GraduateSubmissionsMVC.Models
         public string UserName { get; set; }
         public string EmailAddress { get; set; }
         public string[] Roles { get; set; }
+
+        //profile
+        public string FirstName { get; set; }
+        public string LastName { get; set; }
+        public string Department { get; set; }
     }
 }

@@ -189,7 +189,8 @@ namespace GraduateSubmissionsMVC.Controllers
             foreach (var item in Membership.GetAllUsers())
             {
                 MembershipUser user = (MembershipUser)item;
-                userlist.Add(new Users { EmailAddress = user.Email, UserName = user.UserName, Roles = Roles.GetRolesForUser(user.UserName) });
+                var profile = Profile.GetProfile(user.UserName);
+                userlist.Add(new Users { EmailAddress = user.Email, UserName = user.UserName, Roles = Roles.GetRolesForUser(user.UserName), FirstName = profile.FirstName, LastName = profile.LastName, Department = profile.Department });
             }
 
             return View(userlist);
