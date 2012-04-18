@@ -1,19 +1,15 @@
 ﻿@model GraduateSubmissionsMVC.Models.DepartmentModel
 
 @{
-    ViewBag.Title = "Details";
+    ViewBag.Title = "Department Details";
 }
 
 <h2>Details</h2>
 
-<fieldset>
-    <legend>Department</legend>
+<div class="editor-box">
 
-    <div class="display-label">Name</div>
-    <div class="display-field">
-        @Html.DisplayFor(model => model.Name)
-    </div>
-</fieldset>
+    Name:@Html.DisplayFor(model => model.Name)
+</div>
 <p>
     @Html.ActionLink("Edit", "Edit", new { id=Model.ID }) |
     @Html.ActionLink("Back to List", "Index")

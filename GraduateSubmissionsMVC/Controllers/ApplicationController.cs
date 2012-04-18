@@ -115,6 +115,7 @@ namespace GraduateSubmissionsMVC.Controllers
         {
             if (ModelState.IsValid)
             {
+                _application.Application.Date = DateTime.Now;
                 db.Application.Add(_application.Application);
                 db.SaveChanges();
 

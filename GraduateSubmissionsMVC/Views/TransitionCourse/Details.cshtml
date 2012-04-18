@@ -1,39 +1,23 @@
 ﻿@model GraduateSubmissionsMVC.Models.TransitionCourseModel
 
 @{
-    ViewBag.Title = "Details";
+    ViewBag.Title = " Transition Course Details";
 }
 
-<h2>Details</h2>
+<h2>Transition Course Details</h2>
 
-<fieldset>
-    <legend>TransitionCourse</legend>
-
-    <div class="display-label">Department</div>
-    <div class="display-field">
-        @Html.DisplayFor(model => model.Department.Name)
-    </div>
-
-    <div class="display-label">Name</div>
-    <div class="display-field">
-        @Html.DisplayFor(model => model.Name)
-    </div>
-
-    <div class="display-label">Number</div>
-    <div class="display-field">
-        @Html.DisplayFor(model => model.Number)
-    </div>
-
-    <div class="display-label">CreditHour</div>
-    <div class="display-field">
-        @Html.DisplayFor(model => model.CreditHour)
-    </div>
-
-    <div class="display-label">Description</div>
-    <div class="display-field">
-        @Html.DisplayFor(model => model.Description)
-    </div>
-</fieldset>
+<div class="editor-box">
+    Department: @Html.DisplayFor(model => model.Department.Name)
+    <br />
+    Name: @Html.DisplayFor(model => model.Name)
+    <br />
+    Number: @Html.DisplayFor(model => model.Number)
+    <br />
+    CreditHour: @Html.DisplayFor(model => model.CreditHour)
+    <br />
+    Description: @Html.DisplayFor(model => model.Description)
+    <br />
+</div>
 <p>
     @Html.ActionLink("Edit", "Edit", new { id=Model.ID }) |
     @Html.ActionLink("Back to List", "Index")
