@@ -13,7 +13,9 @@ CUSTOM STYLES
     color: #0F0F0F;
     padding-left:10px;
     font-weight:bold;
-    width:250px;
+    width:600px;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 
@@ -27,9 +29,11 @@ body {
     background-color: #5c87b2;
     font-size: .85em;
     font-family: "Trebuchet MS", Verdana, Helvetica, Sans-Serif;
-    margin: 0;
+    margin-left: auto;
+    margin-right: auto;
     padding: 0;
     color: #696969;
+    width: 1000px;
 }
 
 a:link {
@@ -323,11 +327,28 @@ div#title {
 .display-label, 
 .editor-label {
     margin: 1em 0 0 0;
+    text-align: right;
 }
 
 .display-field, 
 .editor-field {
     margin: 0.5em 0 0 0;
+    display: inline-block;
+}
+
+.unit
+{
+    margin-left: auto;
+    margin-right: auto;
+    width:400px;
+}
+
+.upload-unit
+{
+    text-align:right;
+    margin-left: auto;
+    margin-right: auto;
+    width: 400px;
 }
 
 .text-box {
