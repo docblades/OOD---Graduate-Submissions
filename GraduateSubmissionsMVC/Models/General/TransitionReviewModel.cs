@@ -10,9 +10,14 @@ namespace GraduateSubmissionsMVC.Models.General
     {
         [Key]
         public int ID { get; set; }
+        public int TransitionCourseModelID { get; set; }
+        public int TransitionOptionModelID { get; set; }
+        public int TransitionOptionModelIDD { get; set; }
+        public int ReviewModelID { get; set; }
+        public int ApplicationID { get; set; }
 
         public virtual TransitionCourseModel TransitionCourseModel{ get; set; }
         public virtual TransitionOptionModel TransitionOptionModel { get; set; }
-        public virtual ICollection<ReviewerModel> ReviewerModel { get; set; }
+        public virtual ReviewerModel ReviewerModel { get; set; }
     }
 }

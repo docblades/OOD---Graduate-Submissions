@@ -12,6 +12,8 @@ namespace GraduateSubmissionsMVC.Models
         GraduateContext db = new GraduateContext();
         public Application Application { get; set; }
 
+        public bool exists { get; set; }
+
         public TermModel Term { get; set; }
 
         public List<TransitionCourses> TransitionCoursesList { get; set; }
@@ -96,6 +98,36 @@ namespace GraduateSubmissionsMVC.Models
 
 
                 return list; //datasource
+        }
+
+        public List<SelectList> TransitionOptionListExists(int count, int id)
+        {
+            var grabTransitionOptions = from a in db.TransitionOption
+                                        select a;
+
+            List<SelectListItem> transitionOptionNames = new List<SelectListItem>();
+
+            List<TransitionOptionModel> grabTransitionOptionsExists = (from a in db.TransitionReview
+                                                                       join b in db.TransitionOption on a.TransitionOptionModelID equals b.ID
+                                                                       where (a.ApplicationID == this.Application.ID) && (a.ReviewModelID == id)
+                                                                       select b).ToList();
+
+            var grabTransitionCourses = from a in db.TransitionCourse
+                                        select a;
+
+            for(int i = 0, k = 0; i < grabTransitionOptions.ToList().Count; ++i, ++k)
+            {
+                transitionOptionNames.Add(new SelectListItem() { Value = grabTransitionOptions.ToList()[i].ID.ToString(), Text = grabTransitionOptions.ToList()[i].Name, Selected = grabTransitionOptions.ToList()[i].ID.ToString().Equals(grabTransitionOptionsExists[i].ID.ToString())});
+            }
+
+            List<SelectList> list = new List<SelectList>();
+            for (int i = 0; i < count; ++i)
+            {
+                list.Add(new SelectList(transitionOptionNames));
+            }
+
+
+            return list; //datasource
         }
 
         public int reviewerDepartmentID { get; set; }
