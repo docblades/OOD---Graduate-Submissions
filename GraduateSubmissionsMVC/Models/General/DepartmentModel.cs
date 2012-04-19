@@ -19,8 +19,6 @@ namespace GraduateSubmissionsMVC.Models
 
         //A department has many courses
         public virtual ICollection<TransitionCourseModel> TransitionCourse { get; set; }
-
-
         public virtual ICollection<Application> Application { get; set; }
     }
 }

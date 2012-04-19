@@ -1,0 +1,50 @@
+﻿@model IEnumerable<GraduateSubmissionsMVC.Models.ReviewViewModel>
+
+@{
+    ViewBag.Title = "Reviewer";
+}
+
+<h2>Reviewer</h2>
+
+<table>
+    <tr>
+        <th>
+            Term
+        </th>
+        <th>
+            First Name
+        </th>
+        <th>
+            Last Name
+        </th>
+        <th>
+            Student ID
+        </th>
+        <th>
+            E-mail
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.Raw(item.Term.Name + " " + item.Term.Date)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Application.firstname)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Application.lastname)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Application.studentNumber)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Application.email)
+        </td>
+
+        <td>@Html.ActionLink("Review", "Review", "Reviewer", new { id = item.Application.ID }, null)</td>
+    </tr>
+}
+</table>

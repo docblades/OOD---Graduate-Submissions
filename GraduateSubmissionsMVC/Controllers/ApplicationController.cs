@@ -115,40 +115,43 @@ namespace GraduateSubmissionsMVC.Controllers
         {
             if (ModelState.IsValid)
             {
-                _application.Application.Date = DateTime.Now;
-                db.Application.Add(_application.Application);
-                db.SaveChanges();
-
                 if (Departments == null)
                 {
                     //return RedirectToAction("Upload", new { id = _application.Application.ID });
-                    return RedirectToAction("Index");
+                    ModelState.AddModelError(string.Empty, "Please choose a department.");
                 }
                 else
                 {
+
+                    _application.Application.Date = DateTime.Now;
+                    _application.Application.IsDecided = false;
+
+                    db.Application.Add(_application.Application);
+                    db.SaveChanges();
+
                     foreach (string s in Departments)
                     {
                         db.ApplicationDepartment.Add(new ApplicationDepartment() { DepartmentID = Int32.Parse(s), ApplicationID = _application.Application.ID });
                     }
-                }
 
-                foreach(string file in Request.Files)
-                {
-                    HttpPostedFileBase hpf = Request.Files[file] as HttpPostedFileBase;
-                    if (hpf.ContentLength > 0)
+                    foreach (string file in Request.Files)
                     {
-                        var fileName = Path.GetFileName(hpf.FileName);
-                        var path = Path.Combine(Server.MapPath("~/App_Data/uploads/"), fileName);
+                        HttpPostedFileBase hpf = Request.Files[file] as HttpPostedFileBase;
+                        if (hpf.ContentLength > 0)
+                        {
+                            var fileName = Path.GetFileName(hpf.FileName);
+                            var path = Path.Combine(Server.MapPath("~/Uploads/"), fileName);
 
-                        //copy path url to db
-                        PDFurlModel _upload = new PDFurlModel() { Url = path, Name = "", ApplicationID = _application.Application.ID};
-                        db.PDFurlModel.Add(_upload);
-                        hpf.SaveAs(path);
+                            //copy path url to db
+                            PDFurlModel _upload = new PDFurlModel() { Url = path, Name = "", ApplicationID = _application.Application.ID };
+                            db.PDFurlModel.Add(_upload);
+                            hpf.SaveAs(path);
+                        }
                     }
+                    db.SaveChanges();
+                    //return RedirectToAction("Upload", new { id = _application.Application.ID });
+                    return RedirectToAction("Index");
                 }
-                db.SaveChanges();
-                //return RedirectToAction("Upload", new { id = _application.Application.ID });
-                return RedirectToAction("Index");
             }
             
             //ViewBag.TermID = new SelectList(db.Term, "ID", "Name", application.Application.TermID);

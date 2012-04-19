@@ -4,6 +4,7 @@ using System.Linq;
 using System.Web;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel;
+using GraduateSubmissionsMVC.Models.General;
 
 namespace GraduateSubmissionsMVC.Models
 {
@@ -26,5 +27,7 @@ namespace GraduateSubmissionsMVC.Models
 
         //a course belongs to one department
         public virtual DepartmentModel Department { get; set; }
+
+        public virtual ICollection<TransitionReviewModel> TransitionReviewModel { get; set; }
     }
 }

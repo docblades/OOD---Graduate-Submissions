@@ -35,10 +35,13 @@ namespace GraduateSubmissionsMVC.Models
         public string studentNumber { get; set; }
 
         public DateTime Date { get; set; }
+        public bool IsDecided { get; set; }
 
         public virtual TermModel Term { get; set; }
         public virtual ICollection<DepartmentModel> Department { get; set; }
         public virtual ICollection<PDFurlModel> PDFurlModel { get; set; }
+
+        public virtual ICollection<ReviewerModel> ReviewerModel { get; set; }
 
         
     }

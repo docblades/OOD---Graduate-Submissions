@@ -4,6 +4,7 @@ using System.ComponentModel.DataAnnotations;
 using System.Globalization;
 using System.Web.Mvc;
 using System.Web.Security;
+using GraduateSubmissionsMVC.Models.General;
 
 namespace GraduateSubmissionsMVC.Models
 {
@@ -84,5 +85,7 @@ namespace GraduateSubmissionsMVC.Models
         public int DepartmentID { get; set; }
 
         public virtual DepartmentModel DepartmentModel { get; set; }
+
+        public virtual ICollection<ReviewerModel> ReviewerModel { get; set; }
     }
 }

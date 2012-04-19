@@ -17,5 +17,9 @@ namespace GraduateSubmissionsMVC.Models
         public DbSet<PDFurlModel> PDFurlModel { get; set; }
         public DbSet<Application> Application { get; set; }
         public DbSet<ApplicationDepartment> ApplicationDepartment { get; set; }
+        public DbSet<TransitionOptionModel> TransitionOption { get; set; }
+
+        public DbSet<TransitionReviewModel> TransitionReview { get; set; }
+        public DbSet<ReviewerModel> Reviewer { get; set; }
     }
 }

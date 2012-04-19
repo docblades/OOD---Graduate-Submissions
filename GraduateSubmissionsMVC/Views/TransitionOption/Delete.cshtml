@@ -1,0 +1,22 @@
+﻿@model GraduateSubmissionsMVC.Models.General.TransitionOptionModel
+
+@{
+    ViewBag.Title = "Delete Transition Option";
+}
+
+<h2>Delete Transition Option</h2>
+
+<h3 style="text-align:center">Are you sure you want to delete this?</h3>
+ <div class="editor-box">
+
+   Name: @Html.DisplayFor(model => model.Name)
+
+@using (Html.BeginForm()) {
+    <p>
+        <input type="submit" value="Delete" />
+    </p>
+}
+</div>
+<p>
+        @Html.ActionLink("Back to List", "Index")
+</p>

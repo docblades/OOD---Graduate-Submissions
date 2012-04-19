@@ -1,0 +1,16 @@
+﻿@model GraduateSubmissionsMVC.Models.General.TransitionOptionModel
+
+@{
+    ViewBag.Title = "Transition Option Details";
+}
+
+<h2>Transition Option Details</h2>
+
+ <div class="editor-box">
+
+    Name: @Html.DisplayFor(model => model.Name)
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id=Model.ID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>
