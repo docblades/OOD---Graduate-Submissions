@@ -190,7 +190,6 @@
     <Content Include="Views\Account\Register.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Shared\Error.cshtml" />
-    <Content Include="Views\Shared\_LogOnPartial.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
     <Content Include="Views\Web.config" />
   </ItemGroup>
@@ -206,9 +205,6 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Views\Department\Index.cshtml" />
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include="Views\Department\Details.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Views\Department\Create.cshtml" />
@@ -239,9 +235,6 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Views\Term\Index.cshtml" />
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include="Views\Term\Details.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Views\Term\Create.cshtml" />

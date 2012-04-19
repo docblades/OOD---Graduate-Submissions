@@ -23,9 +23,9 @@ namespace GraduateSubmissionsMVC.Models
         [Display(Name = "E-mail")]
         [RegularExpression(@"^([0-9a-zA-Z]([-\.\w]*[0-9a-zA-Z])*@([0-9a-zA-Z][-\w]*[0-9a-zA-Z]\.)+[a-zA-Z]{2,9})$", ErrorMessage = "Enter a valid e-mail address!")]
         public string email { get; set; }
-        [Display(Name = "Personal description")]
+		[Display(Name = "Personal description"),DataType(DataType.MultilineText)]
         public string PersonalInfo { get; set; }
-        [Display(Name = "Applied before?")]
+        [Display(Name = "Has applied before?")]
         public bool AppliedBefore { get; set; }
         [Display(Name = "If yes, date applied before")]
         [RegularExpression(@"^(0[1-9]|1[012])[- /.](0[1-9]|[12][0-9]|3[01])[- /.](19|20)\d\d$", ErrorMessage = "Format mm/dd/yyyy")]
