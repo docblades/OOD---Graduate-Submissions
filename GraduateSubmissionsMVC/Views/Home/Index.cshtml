@@ -1,5 +1,38 @@
-﻿@{
-    ViewBag.Title = "Graduate Admissions System";
+﻿@{ViewBag.Title = "Graduate Admissions System";}
+<h2>
+	Welcome to the Graduate Admissions System</h2>
+@if (!Request.IsAuthenticated) {
+	<p>@Html.ActionLink("Log on to your account", "LogOn", "Account") or @Html.ActionLink("register", "Register", "Account")</p>
 }
-
-<h2>Graduate Admissions System</h2>
+@if (Request.IsAuthenticated && User.IsInRole("Sys Admin")) {
+	<h2>
+		Time for some sysadmin magic!</h2>
+	<p>@Html.ActionLink("Manage school terms", "Index", "Term")</p>
+	<p>@Html.ActionLink("Manage departments", "Index", "Department")</p>
+	<p>@Html.ActionLink("Manage transition courses", "Index", "TransitionCourse")</p>
+	<p>@Html.ActionLink("Manage transition course options", "Index", "TransitionOption")</p>
+	<p>@Html.ActionLink("Manage users", "Users", "Account")</p>
+}
+@if (Request.IsAuthenticated && User.IsInRole("Reviewer")) {
+	<table>
+		<tr>
+			<th>
+				Term
+			</th>
+			<th>
+				First Name
+			</th>
+			<th>
+				Last Name
+			</th>
+			<th>
+				Student ID
+			</th>
+			<th>
+				E-mail
+			</th>
+			<th>
+			</th>
+		</tr>
+	</table>
+}
