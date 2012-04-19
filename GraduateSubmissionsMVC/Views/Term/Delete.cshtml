@@ -1,23 +1,18 @@
 ﻿@model GraduateSubmissionsMVC.Models.General.TermModel
-
 @{
-    ViewBag.Title = "Delete Term";
+	ViewBag.Title = "Delete Term";
 }
-
-<h2>Delete Term</h2>
-
-<h3 style="text-align:center">Are you sure you want to delete this?</h3>
-<div class="editor-box">
-                Name:  @Html.DisplayFor(model => model.Name)
-                <br />
-                Date:  @Html.DisplayFor(model => model.Date)
-
+<h2>
+	Delete @Html.DisplayFor(model => model.Name) @Html.DisplayFor(model => model.Date)?</h2>
 @using (Html.BeginForm()) {
-    <p>
-        <input type="submit" value="Delete" /><br /><br />
-    </p>
+	<table class="editor-box centered-table">
+		<tr>
+			<td>
+				<input type="submit" value="Delete" />
+			</td>
+		</tr>
+	</table>
 }
-</div>
 <p>
-        @Html.ActionLink("Back to List", "Index")
+	@Html.ActionLink("Back", "Index")
 </p>

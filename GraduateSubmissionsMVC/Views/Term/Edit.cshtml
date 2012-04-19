@@ -1,47 +1,40 @@
 ﻿@model GraduateSubmissionsMVC.Models.General.TermModel
-
 @{
-    ViewBag.Title = "Edit Term";
+	ViewBag.Title = "Term";
 }
-
-<h2>Edit Term</h2>
-
+<h2>Term</h2>
 <script src="@Url.Content("~/Scripts/jquery.validate.min.js")" type="text/javascript"></script>
 <script src="@Url.Content("~/Scripts/jquery.validate.unobtrusive.min.js")" type="text/javascript"></script>
+@using (Html.BeginForm()) {
+	@Html.ValidationSummary(true)
 
-@using (Html.BeginForm())
-{
-    @Html.ValidationSummary(true)
-     <div class="editor-box">
-            <div class="unit">
-                @Html.HiddenFor(model => model.ID)
-                <div class="editor-label">
-                 @Html.LabelFor(model => model.Name)
-                <div class="editor-field">
-                    @Html.EditorFor(model => model.Name)
-                    @Html.ValidationMessageFor(model => model.Name)
-                </div>
-                </div>
-            </div>
-
-        <div class="unit">
-        <div class="editor-label">
-            @Html.LabelFor(model => model.Date)
-        <div class="editor-field">
-            @Html.EditorFor(model => model.Date)
-            @Html.ValidationMessageFor(model => model.Date)
-        </div>
-        </div>
-        </div>
-    
-        <div class="unit-upload">
-        <p>
-            <input type="submit" value="Save" />
-        </p>
-        </div>
-    </div>
+	@Html.HiddenFor(model => model.ID)
+	<table class="editor-box">
+		<tr class="unit">
+			<td class="editor-label">
+				@Html.LabelFor(model => model.Name)
+			</td>
+			<td class="editor-field">
+				@Html.EditorFor(model => model.Name)
+				@Html.ValidationMessageFor(model => model.Name)
+			</td>
+		</tr>
+		<tr class="unit">
+			<td class="editor-label">
+				@Html.LabelFor(model => model.Date)
+			</td>
+			<td class="editor-field">
+				@Html.EditorFor(model => model.Date)
+				@Html.ValidationMessageFor(model => model.Date)
+			</td>
+		</tr>
+		<tr class="unit">
+			<td>
+				@Html.ActionLink("Back to List", "Index")
+			</td>
+			<td class="unit-upload">
+				<input type="submit" value="Save" />
+			</td>
+		</tr>
+	</table>
 }
-
-<div>
-    @Html.ActionLink("Back to List", "Index")
-</div>

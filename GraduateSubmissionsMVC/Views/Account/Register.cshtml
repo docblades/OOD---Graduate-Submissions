@@ -4,10 +4,8 @@
     ViewBag.Title = "Register";
 }
 
-<h2>Account</h2>
-<p style="text-align: center">
-    Use the form below to create a new account. 
-</p>
+<h2>
+	Sign Up For a New Account</h2>
 <p style = "text-align: center">
     Passwords are required to be a minimum of @Membership.MinRequiredPasswordLength characters in length.
 </p>
@@ -17,93 +15,84 @@
 
 @using (Html.BeginForm()) {
     @Html.ValidationSummary(true, "Account creation was unsuccessful. Please correct the errors and try again.")
-    <div>
-        <div class="editor-box">
-            <div class="unit">
-                <div class="editor-label">
-                    @Html.LabelFor(m => m.FirstName)
-                <div class="editor-field">
-                    @Html.TextBoxFor(m => m.FirstName)
-                    @Html.ValidationMessageFor(m => m.FirstName)
-                </div>
-                </div>
-            </div>
 
-            <div class="unit">
-                <div class="editor-label">
-                    @Html.LabelFor(m => m.LastName)
-                <div class="editor-field">
-                    @Html.TextBoxFor(m => m.LastName)
-                    @Html.ValidationMessageFor(m => m.LastName)
-                </div>
-                </div>
-            </div>
-
-            <div class="unit">
-                <div class="editor-label">
-                    @Html.LabelFor(m => m.UserName)
-                <div class="editor-field">
-                    @Html.TextBoxFor(m => m.UserName)
-                    @Html.ValidationMessageFor(m => m.UserName)
-                </div>
-                </div>
-            </div>
-
-            <div class="unit">
-                <div class="editor-label">
-                    @Html.LabelFor(m => m.Email)
-                <div class="editor-field">
-                    @Html.TextBoxFor(m => m.Email)
-                    @Html.ValidationMessageFor(m => m.Email)
-                </div>
-                </div>
-            </div>
-
-            <div class="unit">
-                <div class="editor-label">
-                    @Html.Raw("User Role")     
-                <div class="editor-field">
-                    @Html.DropDownListFor(model => model.Role, (SelectList)ViewBag.roleslist, string.Empty)
-                    @Html.ValidationMessageFor(model => model.Role)
-                </div>
-                </div>
-            </div>
-
-            <div class="unit">
-                <div class="editor-label">
-                    @Html.Raw("Department")      
-                <div class="editor-field">
-                    @Html.DropDownListFor(model => model.DepartmentID, (SelectList)ViewBag.departmentID, string.Empty)
-                    @Html.ValidationMessageFor(model => model.DepartmentID)
-                </div>
-                </div>
-            </div>
-
-            <div class="unit">
-                <div class="editor-label">
-                    @Html.LabelFor(m => m.Password)
-                <div class="editor-field">
-                    @Html.PasswordFor(m => m.Password)
-                    @Html.ValidationMessageFor(m => m.Password)
-                </div>
-                </div>
-            </div>
-
-            <div class="unit">
-                <div class="editor-label">
-                    @Html.LabelFor(m => m.ConfirmPassword)
-                <div class="editor-field">
-                    @Html.PasswordFor(m => m.ConfirmPassword)
-                    @Html.ValidationMessageFor(m => m.ConfirmPassword)
-                </div>
-                </div>
-            </div>
-
-            <div id="unit-upload">
-                <p>
-                    <input type="submit" value="Create" />
-                </p>
-            </div>
-            </div>
-    </div>
+		<table class="editor-box">
+			<tr class="unit">
+				<td class="editor-label">
+					@Html.LabelFor(m => m.FirstName)
+				</td>
+				<td class="editor-field">
+					@Html.TextBoxFor(m => m.FirstName)
+					@Html.ValidationMessageFor(m => m.FirstName)
+				</td>
+			</tr>
+			<tr class="unit">
+				<td class="editor-label">
+					@Html.LabelFor(m => m.LastName)
+				</td>
+				<td class="editor-field">
+					@Html.TextBoxFor(m => m.LastName)
+					@Html.ValidationMessageFor(m => m.LastName)
+				</td>
+			</tr>
+			<tr class="unit">
+				<td class="editor-label">
+					@Html.LabelFor(m => m.UserName)
+				</td>
+				<td class="editor-field">
+					@Html.TextBoxFor(m => m.UserName)
+					@Html.ValidationMessageFor(m => m.UserName)
+				</td>
+			</tr>
+			<tr class="unit">
+				<td class="editor-label">
+					@Html.LabelFor(m => m.Email)
+				</td>
+				<td class="editor-field">
+					@Html.TextBoxFor(m => m.Email)
+					@Html.ValidationMessageFor(m => m.Email)
+				</td>
+			</tr>
+			<tr class="unit">
+				<td class="editor-label">
+					@Html.Raw("User Role")
+				</td>
+				<td class="editor-field">
+					@Html.DropDownListFor(model => model.Role, (SelectList)ViewBag.roleslist, string.Empty)
+					@Html.ValidationMessageFor(model => model.Role)
+				</td>
+			</tr>
+			<tr class="unit">
+				<td class="editor-label">
+					@Html.Raw("Department")
+				</td>
+				<td class="editor-field">
+					@Html.DropDownListFor(model => model.DepartmentID, (SelectList)ViewBag.departmentID, string.Empty)
+					@Html.ValidationMessageFor(model => model.DepartmentID)
+				</td>
+			</tr>
+			<tr class="unit">
+				<td class="editor-label">
+					@Html.LabelFor(m => m.Password)
+				</td>
+				<td class="editor-field">
+					@Html.PasswordFor(m => m.Password)
+					@Html.ValidationMessageFor(m => m.Password)
+				</td>
+			</tr>
+			<tr class="unit">
+				<td class="editor-label">
+					@Html.LabelFor(m => m.ConfirmPassword)
+				</td>
+				<td class="editor-field">
+					@Html.PasswordFor(m => m.ConfirmPassword)
+					@Html.ValidationMessageFor(m => m.ConfirmPassword)
+				</td>
+			</tr>
+			<tr class="unit">
+				<td class="unit-upload" colspan="2">
+					<input type="submit" value="Sign Up" />
+				</td>
+			</tr>
+		</table>
 }

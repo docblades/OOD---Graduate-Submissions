@@ -20,6 +20,8 @@ namespace GraduateSubmissionsMVC.Controllers
 
         public ActionResult LogOn()
         {
+			if(Request.IsAuthenticated)
+				RedirectToAction("Index","Home");
             return View();
         }
 
@@ -34,7 +36,19 @@ namespace GraduateSubmissionsMVC.Controllers
                 if (Membership.ValidateUser(model.UserName, model.Password))
                 {
                     FormsAuthentication.SetAuthCookie(model.UserName, model.RememberMe);
-                    if (Url.IsLocalUrl(returnUrl) && returnUrl.Length > 1 && returnUrl.StartsWith("/")
+
+					//TODO: Redirect to dashboard or show relevant dashboard on home
+					/*
+					 * 	string dashboard = User.IsInRole("Reviewer") ? "Reviewer" : "";
+						if (User.IsInRole("Decider"))
+							dashboard = "Decider";
+						else if (User.IsInRole("Admin Assist"))
+							dashboard = "Application";
+						else if (User.IsInRole("Sys Admin"))
+							dashboard = "SysAdmin";
+						return RedirectToAction("Index", dashboard);
+					 */
+					if (Url.IsLocalUrl(returnUrl) && returnUrl.Length > 1 && returnUrl.StartsWith("/")
                         && !returnUrl.StartsWith("//") && !returnUrl.StartsWith("/\\"))
                     {
                         return Redirect(returnUrl);
@@ -46,6 +60,7 @@ namespace GraduateSubmissionsMVC.Controllers
                 }
                 else
                 {
+					
                     ModelState.AddModelError("", "The user name or password provided is incorrect.");
                 }
             }
@@ -61,7 +76,7 @@ namespace GraduateSubmissionsMVC.Controllers
         {
             FormsAuthentication.SignOut();
 
-            return RedirectToAction("Index", "Home");
+            return RedirectToAction("LogOn", "Account");
         }
 
         //
@@ -107,9 +122,13 @@ namespace GraduateSubmissionsMVC.Controllers
                                          where a.ID == model.DepartmentID
                                          select a.Name).ToList()[0];
                     profile.Save();
-
-
-                    return RedirectToAction("Index", "Home");
+					//Sends you to your dashboard
+					string dashboard = model.Role.ToString();
+					if (dashboard.Equals("Sys Admin"))
+						dashboard = "Home";
+					else if (dashboard.Equals("Admin Assist"))
+						dashboard = "Application";
+                    return RedirectToAction("Index", dashboard);
                 }
                 else
                 {
@@ -176,12 +195,14 @@ namespace GraduateSubmissionsMVC.Controllers
         //
         // GET: /Account/ChangePasswordSuccess
 
+		[Authorize]
         public ActionResult ChangePasswordSuccess()
         {
             return View();
         }
 
         //view all the user accounts
+		[Authorize]
         public ActionResult Users()
         {
             List<Users> userlist = new List<Users>();

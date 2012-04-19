@@ -16,7 +16,7 @@ namespace GraduateSubmissionsMVC.Controllers
 
         //
         // GET: /TransitionOption/
-
+		[Authorize]
         public ViewResult Index()
         {
             return View(db.TransitionOption.ToList());
@@ -24,7 +24,7 @@ namespace GraduateSubmissionsMVC.Controllers
 
         //
         // GET: /TransitionOption/Details/5
-
+		[Authorize]
         public ViewResult Details(int id)
         {
             TransitionOptionModel transitionoptionmodel = db.TransitionOption.Find(id);
@@ -33,7 +33,7 @@ namespace GraduateSubmissionsMVC.Controllers
 
         //
         // GET: /TransitionOption/Create
-
+		[Authorize]
         public ActionResult Create()
         {
             return View();
@@ -41,7 +41,7 @@ namespace GraduateSubmissionsMVC.Controllers
 
         //
         // POST: /TransitionOption/Create
-
+		[Authorize]
         [HttpPost]
         public ActionResult Create(TransitionOptionModel transitionoptionmodel)
         {
@@ -57,7 +57,7 @@ namespace GraduateSubmissionsMVC.Controllers
         
         //
         // GET: /TransitionOption/Edit/5
- 
+		[Authorize]
         public ActionResult Edit(int id)
         {
             TransitionOptionModel transitionoptionmodel = db.TransitionOption.Find(id);
@@ -66,7 +66,7 @@ namespace GraduateSubmissionsMVC.Controllers
 
         //
         // POST: /TransitionOption/Edit/5
-
+		[Authorize]
         [HttpPost]
         public ActionResult Edit(TransitionOptionModel transitionoptionmodel)
         {
@@ -81,7 +81,7 @@ namespace GraduateSubmissionsMVC.Controllers
 
         //
         // GET: /TransitionOption/Delete/5
- 
+		[Authorize]
         public ActionResult Delete(int id)
         {
             TransitionOptionModel transitionoptionmodel = db.TransitionOption.Find(id);
@@ -90,7 +90,7 @@ namespace GraduateSubmissionsMVC.Controllers
 
         //
         // POST: /TransitionOption/Delete/5
-
+		[Authorize]
         [HttpPost, ActionName("Delete")]
         public ActionResult DeleteConfirmed(int id)
         {            

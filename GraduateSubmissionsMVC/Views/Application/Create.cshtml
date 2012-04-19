@@ -1,148 +1,126 @@
 ﻿@model GraduateSubmissionsMVC.Models.ApplicationViewModel
-
 @{
-    ViewBag.Title = "Add Application";
+	ViewBag.Title = "Add Application";
 }
-
-<h2>Application</h2>
-
+<h2>
+	Add Application</h2>
 <script src="@Url.Content("~/Scripts/jquery.validate.min.js")" type="text/javascript"></script>
 <script src="@Url.Content("~/Scripts/jquery.validate.unobtrusive.min.js")" type="text/javascript"></script>
 <link href="@Url.Content("~/Content/Site.css")" rel="stylesheet" type="text/css" />
-
-@if (ViewBag.DepartmentListCounter == 0 || ViewBag.TermListCounter == 0)
-{
-    @Html.Raw("No School Terms Exist.");
-    @Html.Raw("<br /> No School Departments Exist.");
-    @Html.Raw("<br /> See your Administrator for further assistance. <br />");
-}
-else
-{
-    using (Html.BeginForm("Create", "Application", null, FormMethod.Post, new { enctype = "multipart/form-data" }))
-    {
+@if (ViewBag.DepartmentListCounter == 0 || ViewBag.TermListCounter == 0) {
+	@Html.Raw("No terms and/or deparments exist. See your Administrator for further assistance.");
+} else {
+	using (Html.BeginForm("Create", "Application", null, FormMethod.Post, new { enctype = "multipart/form-data" })) {
    
-    @Html.ValidationSummary(true)
-    <div class="editor-box">
-        <div class="unit">
-            <div class="editor-label">
-                @Html.Raw("School Term") 
-
-                <div class="editor-field">
-                @Html.DropDownListFor(model => model.Application.TermID, (List<SelectListItem>)ViewBag.TermList, string.Empty)
-                </div>
-            </div>
-        </div>
-        
-        <div class="unit">    
-            <div class="editor-label">
-                @Html.LabelFor(model => model.Application.firstname)
-
-                <div class="editor-field">
-                @Html.EditorFor(model => model.Application.firstname)
-                @Html.ValidationMessageFor(model => model.Application.firstname)
-                </div>
-            </div>
-        </div>
-        
-        <div class="unit">
-            <div class="editor-label">
-                @Html.LabelFor(model => model.Application.lastname)
-
-                 <div class="editor-field">
-                @Html.EditorFor(model => model.Application.lastname)
-                @Html.ValidationMessageFor(model => model.Application.lastname)
-                </div>
-            </div>
-        </div>
-       
-        <div class="unit">
-            <div class="editor-label">
-                @Html.LabelFor(model => model.Application.studentNumber)
-
-                <div class="editor-field">
-                @Html.EditorFor(model => model.Application.studentNumber)
-                @Html.ValidationMessageFor(model => model.Application.studentNumber)
-                </div>
-            </div>
-        </div>
-        
-        <div class="unit">
-            <div class="editor-label">
-                @Html.LabelFor(model => model.Application.number)
-
-                <div class="editor-field">
-                @Html.EditorFor(model => model.Application.number)
-                @Html.ValidationMessageFor(model => model.Application.number)
-                </div>
-            </div>
-        </div>
-        
-        <div class="unit">
-            <div class="editor-label">
-                @Html.LabelFor(model => model.Application.email)
-
-                <div class="editor-field">
-                @Html.EditorFor(model => model.Application.email)
-                @Html.ValidationMessageFor(model => model.Application.email)
-                </div>
-            </div>
-        </div>
-        
-        <div class="unit">
-            <div class="editor-label">
-                @Html.LabelFor(model => model.Application.PersonalInfo)
-
-                <div class="editor-field">
-                @Html.EditorFor(model => model.Application.PersonalInfo)
-                @Html.ValidationMessageFor(model => model.Application.PersonalInfo)
-                </div>
-            </div>
-        </div>
-        
-        <div class="unit">
-            <div class="editor-label">
-                @Html.LabelFor(model => model.Application.AppliedBefore)
-
-                <div class="editor-field">
-                @Html.EditorFor(model => model.Application.AppliedBefore)
-                @Html.Raw(" Yes")
-                @Html.ValidationMessageFor(model => model.Application.AppliedBefore)
-                </div>
-            </div>
-        </div>
-        
-        <div class="unit">
-            <div class="editor-label">
-                @Html.LabelFor(model => model.Application.DateAppliedBefore)
-
-                <div class="editor-field">
-                @Html.EditorFor(model => model.Application.DateAppliedBefore)
-                @Html.ValidationMessageFor(model => model.Application.DateAppliedBefore)
-                </div>
-            </div>
-        </div>
-
-        <!--Departments-->
-         <div class="unit">
-             <div class="editor-label">
-                @Html.Raw("Departments applying for...")
-
-                <div class="editor-field">
-                @Html.CheckBoxList("Departments",(List<SelectListItem>)ViewBag.departmentList, Position.Horizontal)
-                </div>
-            </div>
-        </div>
-        
-        <div class="upload-unit">
-        <br />
-        @FileUpload.GetHtml("fileUpload", 1, true, false)
-        <p>
-            <input type="submit" value="Save Application" />
-        </p>
-        </div>
-    </div>
-    }
+	@Html.ValidationSummary(true)
+	<table class="editor-box centered-table">
+		<tr class="unit">
+			<td class="editor-label">
+				@Html.Raw("School Term")
+			</td>
+			<td class="editor-field">
+				@Html.DropDownListFor(model => model.Application.TermID, (List<SelectListItem>)ViewBag.TermList, string.Empty)
+			</td>
+		</tr>
+		<tr class="unit">
+			<td class="editor-label">
+				@Html.LabelFor(model => model.Application.firstname)
+			</td>
+			<td class="editor-field">
+				@Html.EditorFor(model => model.Application.firstname)
+				@Html.ValidationMessageFor(model => model.Application.firstname)
+			</td>
+		</tr>
+		<tr class="unit">
+			<td class="editor-label">
+				@Html.LabelFor(model => model.Application.lastname)
+			</td>
+			<td class="editor-field">
+				@Html.EditorFor(model => model.Application.lastname)
+				@Html.ValidationMessageFor(model => model.Application.lastname)
+			</td>
+		</tr>
+		<tr class="unit">
+			<td class="editor-label">
+				@Html.LabelFor(model => model.Application.studentNumber)
+			</td>
+			<td class="editor-field">
+				@Html.EditorFor(model => model.Application.studentNumber)
+				@Html.ValidationMessageFor(model => model.Application.studentNumber)
+			</td>
+		</tr>
+		<tr class="unit">
+			<td class="editor-label">
+				@Html.LabelFor(model => model.Application.number)
+			</td>
+			<td class="editor-field">
+				@Html.EditorFor(model => model.Application.number)
+				@Html.ValidationMessageFor(model => model.Application.number)
+			</td>
+		</tr>
+		<tr class="unit">
+			<td class="editor-label">
+				@Html.LabelFor(model => model.Application.email)
+			</td>
+			<td class="editor-field">
+				@Html.EditorFor(model => model.Application.email)
+				@Html.ValidationMessageFor(model => model.Application.email)
+			</td>
+		</tr>
+		<tr class="unit">
+			<td class="editor-label" valign="top">
+				@Html.LabelFor(model => model.Application.PersonalInfo)
+			</td>
+			<td class="editor-field">
+				@Html.EditorFor(model => model.Application.PersonalInfo)
+				@Html.ValidationMessageFor(model => model.Application.PersonalInfo)
+			</td>
+		</tr>
+		<tr class="unit">
+			<td class="editor-label">
+				@Html.LabelFor(model => model.Application.AppliedBefore)
+			</td>
+			<td class="editor-field">
+				@Html.EditorFor(model => model.Application.AppliedBefore)
+				@Html.Raw(" Yes")
+				@Html.ValidationMessageFor(model => model.Application.AppliedBefore)
+			</td>
+		</tr>
+		<tr class="unit">
+			<td class="editor-label">
+				@Html.LabelFor(model => model.Application.DateAppliedBefore)
+			</td>
+			<td class="editor-field">
+				@Html.EditorFor(model => model.Application.DateAppliedBefore)
+				@Html.ValidationMessageFor(model => model.Application.DateAppliedBefore)
+			</td>
+		</tr>
+		<!--Departments-->
+		<tr class="unit">
+			<td class="editor-label" valign="top">
+				Applying for
+			</td>
+			<td class="editor-field">
+				@Html.CheckBoxList("Departments", (List<SelectListItem>)ViewBag.departmentList, Position.Vertical)
+			</td>
+		</tr>
+		<tr>
+			<td valign="top">
+				Attachments
+			</td>
+			<td class="upload-unit">
+				@FileUpload.GetHtml("fileUpload", 1, true, false, "Add another")
+			</td>
+		</tr>
+		<tr>
+			<td>@Html.ActionLink("Back", "Index")
+			</td>
+			<td class="upload-unit" colspan="2">
+				<input type="submit" value="Save Application" />
+			</td>
+		</tr>
+	</table>
+	}
 }
 <div>
-    @Html.ActionLink("Back to List", "Index")
 </div>

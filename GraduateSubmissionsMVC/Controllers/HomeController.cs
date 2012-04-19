@@ -6,8 +6,10 @@ using System.Web.Mvc;
 
 namespace GraduateSubmissionsMVC.Controllers
 {
+	
     public class HomeController : Controller
     {
+
         public ActionResult Index()
         {
             return View();

@@ -1,132 +1,125 @@
 ﻿/*----------------------------------------------------------
 CUSTOM STYLES
 ----------------------------------------------------------*/
-.editor-field-larger textarea
-{
-    height: 150px;
-    width: 200px;
+.editor-field-larger textarea {
+	height: 150px;
+	width: 200px;
 }
 
-.editor-box
-{
-    background-color: #DCCCAA;
-    color: #0F0F0F;
-    padding-left:10px;
-    font-weight:bold;
-    width:600px;
-    margin-left: auto;
-    margin-right: auto;
+.editor-box {
+	background-color: #f1e2b9;
+	color: #0F0F0F;
+	font-weight: bold;
+	padding: 20px 20px;
+	margin-left: auto;
+	margin-right: auto;
 }
 
-h2
-{
-    text-align: center;
+h2 {
+	text-align: center;
 }
 
-.review-box
-{
-    background-color: #DCCCAA;
-    color: #0F0F0F;
-    padding-left:10px;
-    font-weight:bold;
-    width:500px;
-    margin-left: auto;
-    margin-right: auto;
+.review-box {
+	background-color: #DCCCAA;
+	color: #0F0F0F;
+	padding-left: 10px;
+	font-weight: bold;
+	width: 500px;
+	margin-left: auto;
+	margin-right: auto;
 }
 
-.transition-box
-{
-    margin-left: auto;
-    margin-right:auto;
-    width:500px;
-    margin-top: 20px;
+.transition-box {
+	margin-left: auto;
+	margin-right: auto;
+	width: 500px;
+	margin-top: 20px;
 }
 
-.transition-box table
-{
-    width:500px;
+.transition-box table {
+	width: 500px;
 }
 
-.comment-box
-{
-    margin-left: auto;
-    margin-right:auto;
-    width: 400px;
+.comment-box {
+	margin-left: auto;
+	margin-right: auto;
+	width: 400px;
 }
 
+.centered-table {
+margin-left:auto;margin-right: auto;
+}
 /*----------------------------------------------------------
 The base color for this template is #5c87b2. If you'd like
 to use a different color start by replacing all instances of
 #5c87b2 with your new color.
 ----------------------------------------------------------*/
 body {
-    background-color: #5c87b2;
-    font-size: .85em;
-    font-family: "Trebuchet MS", Verdana, Helvetica, Sans-Serif;
-    margin-left: auto;
-    margin-right: auto;
-    padding: 0;
-    color: #696969;
-    width: 1000px;
+	background-color: #918259;
+	font-size: 1 em;
+	font-family: "Trebuchet MS" , Verdana, Helvetica, Sans-Serif;
+	margin-left: auto;
+	margin-right: auto;
+	padding: 0;
+	color: #696969;
+	max-width: 1000px;
+	min-width: 800px;
 }
 
 a:link {
-    color: #034af3;
-    text-decoration: underline;
+	color: #00f;
+	text-decoration: underline;
 }
 
 a:visited {
-    color: #505abc;
+	color: #00f;
 }
 
 a:hover {
-    color: #1d60ff;
-    text-decoration: none;
+	color: #00c;
+	text-decoration: none;
 }
 
 a:active {
-    color: #12eb87;
+	color: #00a;
 }
 
 p, ul {
-    margin-bottom: 20px;
-    line-height: 1.6em;
+	margin-bottom: 20px;
+	line-height: 1.6em;
 }
 
-header,
-footer,
-nav,
-section {
-    display: block;
+header, footer, nav, section {
+	display: block;
 }
 
 /* HEADINGS   
 ----------------------------------------------------------*/
 h1, h2, h3, h4, h5, h6 {
-    font-size: 1.5em;
-    color: #000;
+	color: #000;
 }
 
 h1 {
-    font-size: 2em;
-    padding-bottom: 0;
-    margin-bottom: 0;
+	font-size: 2em;
+	padding-bottom: 0;
+	margin-bottom: 0;
 }
 
 h2 {
-    padding: 0 0 10px 0;
+	font-size: 1.5em;
+	padding: 0 0 10px 0;
 }
 
 h3 {
-    font-size: 1.2em;
+	font-size: 1.2em;
 }
 
 h4 {
-    font-size: 1.1em;
+	font-size: 1.1em;
 }
 
 h5, h6 {
-    font-size: 1em;
+	font-size: 1em;
 }
 
 /* PRIMARY LAYOUT ELEMENTS   
@@ -135,264 +128,255 @@ h5, h6 {
 /* you can specify a greater or lesser percentage for the 
 page width. Or, you can specify an exact pixel width. */
 .page {
-    width: 90%;
-    margin-left: auto;
-    margin-right: auto;
+	width: 95%;
+	margin-left: auto;
+	margin-right: auto;
 }
 
 header, #header {
-    position: relative;
-    margin-bottom: 0px;
-    color: #000;
-    padding: 0;
+	position: relative;
+	margin-bottom: 0px;
+	color: #000;
+	padding: 0;
 }
 
 header h1, #header h1 {
-    font-weight: bold;
-    padding: 5px 0;
-    margin: 0;
-    color: #fff;
-    border: none;
-    font-size: 32px !important;
-    text-shadow: 1px 1px 2px #111;
+	font-weight: bold;
+	padding: 5px 0;
+	margin: 0;
+	color: #fff;
+	border: none;
+	font-size: 32px !important;
+	text-shadow: 1px 1px 2px #111;
 }
 
 #main {
-    padding: 30px 30px 15px 30px;
-    background-color: #fff;
-    border-radius: 4px 0 0 0;
-    -webkit-border-radius: 4px 0 0 0;
-    -moz-border-radius: 4px 0 0 0;
+	padding: 15px;
+	background-color: #fff;
+	border-radius: 8px 8px 0 0;
+	-webkit-border-radius: 0 0;
+	-moz-border-radius: 0 0;
 }
 
-footer, 
-#footer {
-    background-color: #fff;
-    color: #999;
-    padding: 10px 0;
-    text-align: center;
-    line-height: normal;
-    margin: 0 0 30px 0;
-    font-size: .9em;
-    border-radius: 0 0 4px 4px;
-    -webkit-border-radius: 0 0 4px 4px;
-    -moz-border-radius: 0 0 4px 4px;
+footer, #footer {
+	background-color: #fff;
+	color: #999;
+	padding: 1px 0;
+	text-align: center;
+	line-height: normal;
+	margin: 0;
+	font-size: .9em;
+	border-radius: 0 0 8px 8px;
+	-webkit-border-radius: 0 0 8px 8px;
+	-moz-border-radius: 0 0 8px 8px;
 }
 
 /* TAB MENU   
 ----------------------------------------------------------*/
 ul#menu {
-    border-bottom: 1px #5C87B2 solid;
-    padding: 0 0 2px;
-    position: relative;
-    margin: 0;
-    text-align: left;
+	padding: 0 0 0px 10px;
+	position: relative;
+	margin: 0;
+	text-align: left;
 }
 
 ul#menu li {
-    display: inline;
-    list-style: none;
+	display: inline;
+	list-style: none;
 }
 
 ul#menu li#greeting {
-    padding: 10px 20px;
-    font-weight: bold;
-    text-decoration: none;
-    line-height: 2.8em;
-    color: #fff;
+	padding: 10px 20px;
+	font-weight: bold;
+	text-decoration: none;
+	line-height: 2.8em;
+	color: #fff;
 }
 
 ul#menu li a {
-    padding: 10px 20px;
-    font-weight: bold;
-    text-decoration: none;
-    line-height: 2.8em;
-    background-color: #e8eef4;
-    color: #034af3;
-    border-radius: 4px 4px 0 0;
-    -webkit-border-radius: 4px 4px 0 0;
-    -moz-border-radius: 4px 4px 0 0;
+	padding: 10px 20px;
+	font-weight: bold;
+	text-decoration: none;
+	line-height: 2.8em;
+	background-color: #f1e2b9;
+	color: #000;
+	border-radius: 4px 4px 0 0;
+	-webkit-border-radius: 4px 4px 0 0;
+	-moz-border-radius: 4px 4px 0 0;
 }
 
 ul#menu li a:hover {
-    background-color: #fff;
-    text-decoration: none;
+	background-color: #f1f2d9;
+	text-decoration: none;
 }
 
 ul#menu li a:active {
-    background-color: #a6e2a6;
-    text-decoration: none;
+	background-color: #fff;
+	text-decoration: none;
 }
 
 ul#menu li.selected a {
-    background-color: #fff;
-    color: #000;
+	background-color: #fff;
+	color: #000;
 }
 
 /* FORM LAYOUT ELEMENTS   
 ----------------------------------------------------------*/
 
 fieldset {
-    border: 1px solid #ddd;
-    padding: 0 1.4em 1.4em 1.4em;
-    margin: 0 0 1.5em 0;
+	border: 1px solid #ddd;
+	padding: 0 1.4em 1.4em 1.4em;
+	margin: 0 0 1.5em 0;
 }
 
 legend {
-    font-size: 1.2em;
-    font-weight: bold;
+	font-size: 1.2em;
+	font-weight: bold;
 }
 
 textarea {
-    min-height: 75px;
+	min-height: 75px;
 }
 
-input[type="text"], 
-input[type="password"] {
-    border: 1px solid #ccc;
-    padding: 2px;
-    font-size: 1.2em;
-    color: #444;
-    width: 200px;
+input[type="text"], input[type="password"] {
+	border: 1px solid #ccc;
+	padding: 2px;
+	font-size: 1.2em;
+	color: #444;
+	width: 200px;
 }
 
 select {
-    border: 1px solid #ccc;
-    padding: 2px;
-    font-size: 1.2em;
-    color: #444;
+	border: 1px solid #ccc;
+	padding: 2px;
+	font-size: 1.2em;
+	color: #444;
 }
 
 input[type="submit"] {
-    font-size: 1.2em;
-    padding: 5px;
+	font-size: 1.2em;
+	padding: 5px;
 }
 
 /* TABLE
 ----------------------------------------------------------*/
 
 table {
-    border: solid 1px #e8eef4;
-    border-collapse: collapse;
+	border: solid 1px #f1f2d9;
+	border-collapse: collapse;
 }
 
 table td {
-    padding: 5px;
-    border: solid 1px #e8eef4;
+	padding: 5px;
+	border: solid 1px #f1f2d9;
 }
 
 table th {
-    padding: 6px 5px;
-    text-align: left;
-    background-color: #e8eef4;
-    border: solid 1px #e8eef4;
+	padding: 6px 5px;
+	text-align: left;
+	background-color: #f1f2d9;
+	border: solid 1px #f1f2d9;
+}
+
+table.editor-box, table.editor-box td {
+	border: none;
 }
 
 /* MISC  
 ----------------------------------------------------------*/
 .clear {
-    clear: both;
+	clear: both;
 }
 
 .error {
-    color: Red;
+	color: Red;
 }
 
-nav, 
-#menucontainer {
-    margin-top: 40px;
+nav, #menucontainer {
+	margin-top: 40px;
 }
 
 div#title {
-    display: block;
-    float: left;
-    text-align: left;
+	display: block;
+	float: left;
+	text-align: left;
 }
 
 #logindisplay {
-    font-size: 1.1em;
-    display: block;
-    text-align: right;
-    margin: 10px;
-    color: White;
+	font-size: 1.1em;
+	display: block;
+	text-align: right;
+	margin: 10px;
+	color: White;
 }
 
 #logindisplay a:link {
-    color: white;
-    text-decoration: underline;
+	color: white;
+	text-decoration: underline;
 }
 
 #logindisplay a:visited {
-    color: white;
-    text-decoration: underline;
+	color: white;
+	text-decoration: underline;
 }
 
 #logindisplay a:hover {
-    color: white;
-    text-decoration: none;
+	color: white;
+	text-decoration: none;
 }
 
 /* Styles for validation helpers
 -----------------------------------------------------------*/
 .field-validation-error {
-    color: #ff0000;
+	color: #ff0000;
 }
 
 .field-validation-valid {
-    display: none;
+	display: none;
 }
 
 .input-validation-error {
-    border: 1px solid #ff0000;
-    background-color: #ffeeee;
+	border: 1px solid #ff0000;
+	background-color: #ffeeee;
 }
 
 .validation-summary-errors {
-    font-weight: bold;
-    color: #ff0000;
+	font-weight: bold;
+	color: #ff0000;
 }
 
 .validation-summary-valid {
-    display: none;
+	display: none;
 }
 
 /* Styles for editor and display helpers
 ----------------------------------------------------------*/
-.display-label, 
-.editor-label {
-    margin: 1em 0 0 0;
-    text-align: right;
+.display-label, .editor-label {
+	margin: 1em 0 0 0;
+	text-align: left;
 }
 
-.display-field, 
-.editor-field {
-    margin: 0.5em 0 0 0;
-    display: inline-block;
+.display-field, .editor-field {
+	margin: 0.5em 0 0 0;
+	display:inline-block;
 }
 
-.unit
-{
-    margin-left: auto;
-    margin-right: auto;
-    width:400px;
-}
 
-.upload-unit
-{
-    text-align:right;
-    margin-left: auto;
-    margin-right: auto;
-    width: 400px;
+
+.unit-upload {
+	margin-left: auto;
+	margin-right: auto;
+	text-align: right;
 }
 
 .text-box {
-    width: 30em;
+	width: 30em;
 }
 
 .text-box.multi-line {
-    height: 6.5em;
+	height: 6.5em;
 }
 
 .tri-state {
-    width: 6em;
+	width: 6em;
 }
