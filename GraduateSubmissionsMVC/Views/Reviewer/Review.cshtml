@@ -43,7 +43,7 @@
         PDF: 
                 @for (int i = 0, k = 1; i < Model.PDFurlList.Count; i++, k++)
                 {
-                   <a href="@Url.Content("~/" + @Model.PDFurlList[i].Url.Substring(73))" target="_blank">@Model.PDFurlList[i].Url.Substring(82).Replace(".pdf", String.Empty)</a>
+                   <a href="@Url.Content("~/" + @Model.PDFurlList[i].Url.Substring(72))" target="_blank">@Model.PDFurlList[i].Url.Substring(82).Replace(".pdf", String.Empty)</a>
                 }
     </div>
 
@@ -52,30 +52,10 @@
         {
             <table class="table-unit">
                 <tr>
-                    <th>Name</th> 
-                    <th></th>
-                </tr>
-                <tr>
-                    <td>@item.TransitionCourseModel.Name</td> 
-                    <td>@Html.DropDownListFor(model => model.Transition, item.TransitionOptionSelectListItem, "-- Select One --")</td>
-                </tr>
-                <tr>
-                    <th>Number</th>
-                </tr>
-                <tr>
-                    <td>@item.TransitionCourseModel.Number</td>
-                </tr>
-                <tr>
-                    <th>Credit Hours</th>
-                </tr>
-                <tr>
-                    <td>@item.TransitionCourseModel.CreditHour</td>
-                </tr>
-                <tr>
-                    <th>Description</th>
-                </tr>
-                <tr>
-                    <td>@item.TransitionCourseModel.Description</td>
+                    <th>
+						@item.TransitionCourseModel.Name @item.TransitionCourseModel.Number - @item.TransitionCourseModel.Description - @item.TransitionCourseModel.CreditHour Credit Hours 
+					</th> 
+					<th>@Html.DropDownListFor(model => model.Transition, item.TransitionOptionSelectListItem, "-- Select One --")</th>
                 </tr>
             </table>
             <br />
