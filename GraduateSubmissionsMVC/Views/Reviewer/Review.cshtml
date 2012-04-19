@@ -7,7 +7,7 @@
 <h2>Review -- @Model.Application.firstname @Html.Raw(" ") @Model.Application.lastname</h2>
 @using (Html.BeginForm("Review", "Reviewer", FormMethod.Post))
 {
-    @Html.HiddenFor(model => model.Application)
+    @Html.HiddenFor(x => x.Application.ID)
     <div class="review-box">
 
         Term: @Html.DisplayFor(model => model.Term.Name) @Html.DisplayFor(model => model.Term.Date)
