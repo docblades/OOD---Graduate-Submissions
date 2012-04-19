@@ -14,7 +14,7 @@ namespace GraduateSubmissionsMVC.Controllers
 
         //
         // GET: /Reviewer/
-
+		[Authorize]
         public ActionResult Index()
         {
             List<ReviewViewModel> rvmList = new List<ReviewViewModel>();
@@ -39,6 +39,7 @@ namespace GraduateSubmissionsMVC.Controllers
             return View(rvmList);
         }
 
+		[Authorize]
         public ActionResult Review(int id)
         {
             ReviewViewModel rvm = new ReviewViewModel();
@@ -86,6 +87,7 @@ namespace GraduateSubmissionsMVC.Controllers
             return View(rvm);
         }
 
+		[Authorize]
         [HttpPost]
         public ActionResult Review(ReviewViewModel rvm)
         {

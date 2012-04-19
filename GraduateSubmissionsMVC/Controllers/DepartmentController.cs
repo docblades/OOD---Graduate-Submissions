@@ -16,7 +16,7 @@ namespace GraduateSubmissionsMVC.Controllers
 
         //
         // GET: /Department/
-
+		[Authorize]
         public ViewResult Index()
         {
             return View(db.DepartmentModel.ToList());
@@ -24,7 +24,7 @@ namespace GraduateSubmissionsMVC.Controllers
 
         //
         // GET: /Department/Details/5
-
+		[Authorize]
         public ViewResult Details(int id)
         {
             DepartmentModel departmentmodel = db.DepartmentModel.Find(id);
@@ -33,7 +33,7 @@ namespace GraduateSubmissionsMVC.Controllers
 
         //
         // GET: /Department/Create
-
+		[Authorize]
         public ActionResult Create()
         {
             return View();
@@ -41,7 +41,7 @@ namespace GraduateSubmissionsMVC.Controllers
 
         //
         // POST: /Department/Create
-
+		[Authorize]
         [HttpPost]
         public ActionResult Create(DepartmentModel departmentmodel)
         {
@@ -68,7 +68,7 @@ namespace GraduateSubmissionsMVC.Controllers
         
         //
         // GET: /Department/Edit/5
- 
+		[Authorize]
         public ActionResult Edit(int id)
         {
             DepartmentModel departmentmodel = db.DepartmentModel.Find(id);
@@ -77,7 +77,7 @@ namespace GraduateSubmissionsMVC.Controllers
 
         //
         // POST: /Department/Edit/5
-
+		[Authorize]
         [HttpPost]
         public ActionResult Edit(DepartmentModel departmentmodel)
         {
@@ -92,7 +92,7 @@ namespace GraduateSubmissionsMVC.Controllers
 
         //
         // GET: /Department/Delete/5
- 
+		[Authorize]
         public ActionResult Delete(int id)
         {
             DepartmentModel departmentmodel = db.DepartmentModel.Find(id);
@@ -101,7 +101,7 @@ namespace GraduateSubmissionsMVC.Controllers
 
         //
         // POST: /Department/Delete/5
-
+		[Authorize]
         [HttpPost, ActionName("Delete")]
         public ActionResult DeleteConfirmed(int id)
         {            

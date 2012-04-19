@@ -16,7 +16,7 @@ namespace GraduateSubmissionsMVC.Controllers
 
         //
         // GET: /Term/
-
+		[Authorize]
         public ViewResult Index()
         {
             return View(db.Term.ToList());
@@ -24,7 +24,7 @@ namespace GraduateSubmissionsMVC.Controllers
 
         //
         // GET: /Term/Details/5
-
+		[Authorize]
         public ViewResult Details(int id)
         {
             TermModel termmodel = db.Term.Find(id);
@@ -33,7 +33,7 @@ namespace GraduateSubmissionsMVC.Controllers
 
         //
         // GET: /Term/Create
-
+		[Authorize]
         public ActionResult Create()
         {
             return View();
@@ -41,7 +41,7 @@ namespace GraduateSubmissionsMVC.Controllers
 
         //
         // POST: /Term/Create
-
+		[Authorize]
         [HttpPost]
         public ActionResult Create(TermModel termmodel)
         {
@@ -57,7 +57,7 @@ namespace GraduateSubmissionsMVC.Controllers
         
         //
         // GET: /Term/Edit/5
- 
+		[Authorize]
         public ActionResult Edit(int id)
         {
             TermModel termmodel = db.Term.Find(id);
@@ -66,7 +66,7 @@ namespace GraduateSubmissionsMVC.Controllers
 
         //
         // POST: /Term/Edit/5
-
+		[Authorize]
         [HttpPost]
         public ActionResult Edit(TermModel termmodel)
         {
@@ -81,7 +81,7 @@ namespace GraduateSubmissionsMVC.Controllers
 
         //
         // GET: /Term/Delete/5
- 
+		[Authorize]
         public ActionResult Delete(int id)
         {
             TermModel termmodel = db.Term.Find(id);
@@ -90,7 +90,7 @@ namespace GraduateSubmissionsMVC.Controllers
 
         //
         // POST: /Term/Delete/5
-
+		[Authorize]
         [HttpPost, ActionName("Delete")]
         public ActionResult DeleteConfirmed(int id)
         {            

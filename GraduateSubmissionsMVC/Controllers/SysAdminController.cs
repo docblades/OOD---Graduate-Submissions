@@ -11,6 +11,7 @@ namespace GraduateSubmissionsMVC.Controllers
         //
         // GET: /SysAdmin/
 
+		[Authorize]
         public ActionResult Index()
         {
             return View();

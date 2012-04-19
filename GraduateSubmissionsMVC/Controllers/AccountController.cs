@@ -125,7 +125,7 @@ namespace GraduateSubmissionsMVC.Controllers
 					//Sends you to your dashboard
 					string dashboard = model.Role.ToString();
 					if (dashboard.Equals("Sys Admin"))
-						dashboard = "SysAdmin";
+						dashboard = "Home";
 					else if (dashboard.Equals("Admin Assist"))
 						dashboard = "Application";
                     return RedirectToAction("Index", dashboard);
@@ -195,12 +195,14 @@ namespace GraduateSubmissionsMVC.Controllers
         //
         // GET: /Account/ChangePasswordSuccess
 
+		[Authorize]
         public ActionResult ChangePasswordSuccess()
         {
             return View();
         }
 
         //view all the user accounts
+		[Authorize]
         public ActionResult Users()
         {
             List<Users> userlist = new List<Users>();

@@ -15,7 +15,7 @@ namespace GraduateSubmissionsMVC.Controllers
 
         //
         // GET: /TransitionCourse/
-
+		[Authorize]
         public ViewResult Index()
         {
             var transitioncourse = db.TransitionCourse.Include(t => t.Department);
@@ -24,7 +24,7 @@ namespace GraduateSubmissionsMVC.Controllers
 
         //
         // GET: /TransitionCourse/Details/5
-
+		[Authorize]
         public ViewResult Details(int id)
         {
             TransitionCourseModel transitioncourse = db.TransitionCourse.Find(id);
@@ -33,7 +33,7 @@ namespace GraduateSubmissionsMVC.Controllers
 
         //
         // GET: /TransitionCourse/Create
-
+		[Authorize]
         public ActionResult Create()
         {
             ViewBag.DepartmentID = new SelectList(db.DepartmentModel, "ID", "Name");
@@ -42,7 +42,7 @@ namespace GraduateSubmissionsMVC.Controllers
 
         //
         // POST: /TransitionCourse/Create
-
+		[Authorize]
         [HttpPost]
         public ActionResult Create(TransitionCourseModel transitioncourse)
         {
@@ -59,7 +59,7 @@ namespace GraduateSubmissionsMVC.Controllers
         
         //
         // GET: /TransitionCourse/Edit/5
- 
+		[Authorize]
         public ActionResult Edit(int id)
         {
             TransitionCourseModel transitioncourse = db.TransitionCourse.Find(id);
@@ -69,7 +69,7 @@ namespace GraduateSubmissionsMVC.Controllers
 
         //
         // POST: /TransitionCourse/Edit/5
-
+		[Authorize]
         [HttpPost]
         public ActionResult Edit(TransitionCourseModel transitioncourse)
         {
@@ -85,7 +85,7 @@ namespace GraduateSubmissionsMVC.Controllers
 
         //
         // GET: /TransitionCourse/Delete/5
- 
+		[Authorize]
         public ActionResult Delete(int id)
         {
             TransitionCourseModel transitioncourse = db.TransitionCourse.Find(id);
@@ -94,7 +94,7 @@ namespace GraduateSubmissionsMVC.Controllers
 
         //
         // POST: /TransitionCourse/Delete/5
-
+		[Authorize]
         [HttpPost, ActionName("Delete")]
         public ActionResult DeleteConfirmed(int id)
         {            

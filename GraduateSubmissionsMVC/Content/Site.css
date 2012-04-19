@@ -7,11 +7,10 @@ CUSTOM STYLES
 }
 
 .editor-box {
-	background-color: #DCCCAA;
+	background-color: #f1e2b9;
 	color: #0F0F0F;
-	padding-left: 10px;
 	font-weight: bold;
-	width: 600px;
+	padding: 20px 20px;
 	margin-left: auto;
 	margin-right: auto;
 }
@@ -47,6 +46,9 @@ h2 {
 	width: 400px;
 }
 
+.centered-table {
+margin-left:auto;margin-right: auto;
+}
 /*----------------------------------------------------------
 The base color for this template is #5c87b2. If you'd like
 to use a different color start by replacing all instances of
@@ -151,8 +153,8 @@ header h1, #header h1 {
 #main {
 	padding: 15px;
 	background-color: #fff;
-	border-radius: 0 0;
-	-webkit-border-radius:0 0;
+	border-radius: 8px 8px 0 0;
+	-webkit-border-radius: 0 0;
 	-moz-border-radius: 0 0;
 }
 
@@ -172,8 +174,7 @@ footer, #footer {
 /* TAB MENU   
 ----------------------------------------------------------*/
 ul#menu {
-	
-	padding: 0 0 0px 5px;
+	padding: 0 0 0px 10px;
 	position: relative;
 	margin: 0;
 	text-align: left;
@@ -261,20 +262,24 @@ input[type="submit"] {
 ----------------------------------------------------------*/
 
 table {
-	border: solid 1px #e8eef4;
+	border: solid 1px #f1f2d9;
 	border-collapse: collapse;
 }
 
 table td {
 	padding: 5px;
-	border: solid 1px #e8eef4;
+	border: solid 1px #f1f2d9;
 }
 
 table th {
 	padding: 6px 5px;
 	text-align: left;
-	background-color: #e8eef4;
-	border: solid 1px #e8eef4;
+	background-color: #f1f2d9;
+	border: solid 1px #f1f2d9;
+}
+
+table.editor-box, table.editor-box td {
+	border: none;
 }
 
 /* MISC  
@@ -348,25 +353,20 @@ div#title {
 ----------------------------------------------------------*/
 .display-label, .editor-label {
 	margin: 1em 0 0 0;
-	text-align: right;
+	text-align: left;
 }
 
 .display-field, .editor-field {
 	margin: 0.5em 0 0 0;
-	display: inline-block;
+	display:inline-block;
 }
 
-.unit {
+
+
+.unit-upload {
 	margin-left: auto;
 	margin-right: auto;
-	width: 400px;
-}
-
-.upload-unit {
 	text-align: right;
-	margin-left: auto;
-	margin-right: auto;
-	width: 400px;
 }
 
 .text-box {

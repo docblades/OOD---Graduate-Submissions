@@ -1,33 +1,29 @@
 ﻿@model IEnumerable<GraduateSubmissionsMVC.Models.DepartmentModel>
-
 @{
-    ViewBag.Title = "Index";
+	ViewBag.Title = "Index";
 }
-
-<h2>Departments</h2>
-
-<p>
-    @Html.ActionLink("Add Department", "Create")
-</p>
-<table>
-    <tr>
-        <th>
-            Department Name
-        </th>
-        <th></th>
-    </tr>
-
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.Name)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.ID }) |
-            @Html.ActionLink("Details", "Details", new { id=item.ID }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.ID })
-        </td>
-    </tr>
-}
-
+<h2>
+	Departments</h2>
+<table class="centered-table">
+	<tr>
+		<th>
+			Department Name
+		</th>
+		<th>
+		</th>
+	</tr>
+	@foreach (var item in Model) {
+		<tr>
+			<td>
+				@Html.DisplayFor(modelItem => item.Name)
+			</td>
+			<td>
+				@Html.ActionLink("Details", "Edit", new { id = item.ID }) |
+				@Html.ActionLink("Delete", "Delete", new { id = item.ID })
+			</td>
+		</tr>
+ }
+	<td colspan="3">@Html.ActionLink("Add department", "Create")
+	</td>
+	</tr>
 </table>

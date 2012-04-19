@@ -19,7 +19,7 @@ namespace GraduateSubmissionsMVC.Controllers
 
         //
         // GET: /Application/
-
+		[Authorize]
         public ViewResult Index()
         {
             //var application = db.Application.Include(a => a.Term);
@@ -49,6 +49,7 @@ namespace GraduateSubmissionsMVC.Controllers
         }
 
         //upload
+		[Authorize]
         public ActionResult Upload(int id)
         {
             UploadViewModel avm_upload = new UploadViewModel();
@@ -58,6 +59,7 @@ namespace GraduateSubmissionsMVC.Controllers
             return View(avm_upload);
         }
 
+		[Authorize]
         [HttpPost]
         public ActionResult Upload(UploadViewModel avm_upload)
         {
@@ -81,7 +83,7 @@ namespace GraduateSubmissionsMVC.Controllers
 
         //
         // GET: /Application/Details/5
-
+		[Authorize]
         public ViewResult Details(int id)
         {
             Application application = db.Application.Find(id);
@@ -90,7 +92,7 @@ namespace GraduateSubmissionsMVC.Controllers
 
         //
         // GET: /Application/Create
-
+		[Authorize]
         public ActionResult Create()
         {
             //ViewBag.TermID = new SelectList(db.Term, "ID", "Name");
@@ -109,7 +111,7 @@ namespace GraduateSubmissionsMVC.Controllers
 
         //
         // POST: /Application/Create
-
+		[Authorize]
         [HttpPost]
         public ActionResult Create(ApplicationViewModel _application, string [] Departments)
         {
@@ -167,7 +169,7 @@ namespace GraduateSubmissionsMVC.Controllers
         
         //
         // GET: /Application/Edit/5
- 
+		[Authorize]
         public ActionResult Edit(int id)
         {
             Application application = db.Application.Find(id);
@@ -177,7 +179,7 @@ namespace GraduateSubmissionsMVC.Controllers
 
         //
         // POST: /Application/Edit/5
-
+		[Authorize]
         [HttpPost]
         public ActionResult Edit(Application application)
         {
@@ -193,7 +195,7 @@ namespace GraduateSubmissionsMVC.Controllers
 
         //
         // GET: /Application/Delete/5
- 
+		[Authorize]
         public ActionResult Delete(int id)
         {
             Application application = db.Application.Find(id);
@@ -202,7 +204,7 @@ namespace GraduateSubmissionsMVC.Controllers
 
         //
         // POST: /Application/Delete/5
-
+		[Authorize]
         [HttpPost, ActionName("Delete")]
         public ActionResult DeleteConfirmed(int id)
         {            
