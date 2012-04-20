@@ -12,7 +12,7 @@ namespace GraduateSubmissionsMVC.Models.General
         public int ID { get; set; }
         public int TransitionCourseModelID { get; set; }
         public int TransitionOptionModelID { get; set; }
-        public int TransitionOptionModelIDD { get; set; }
+        public bool answered { get; set; }
         public int ReviewModelID { get; set; }
         public int ApplicationID { get; set; }
 

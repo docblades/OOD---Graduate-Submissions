@@ -48,22 +48,40 @@
     </div>
 
     <div class="transition-box">
-        @foreach (var item in Model.TransitionCoursesList)
+        @if (!Model.exists)
         {
-            <table class="table-unit">
-                <tr>
-                    <th>
-						@item.TransitionCourseModel.Name @item.TransitionCourseModel.Number - @item.TransitionCourseModel.Description - @item.TransitionCourseModel.CreditHour Credit Hours 
-					</th> 
-					<th>@Html.DropDownListFor(model => model.Transition, item.TransitionOptionSelectListItem, "-- Select One --")</th>
-                </tr>
-            </table>
-            <br />
+            foreach (var item in Model.TransitionCoursesList)
+            {
+                <table class="table-unit">
+                    <tr>
+                        <th>
+						    @item.TransitionCourseModel.Name @item.TransitionCourseModel.Number - @item.TransitionCourseModel.Description - @item.TransitionCourseModel.CreditHour Credit Hours 
+					    </th> 
+					    <th>@Html.DropDownListFor(model => model.Transition, item.TransitionOptionSelectListItem, "-- Select One --")</th>
+                    </tr>
+                </table>
+                <br />
+            }
+        }
+        else
+        {
+            foreach (var item in Model.TransitionCoursesExist)
+            {
+                <table class="table-unit">
+                    <tr>
+                        <th>
+						    @item.TransitionCourseModel.Name @item.TransitionCourseModel.Number - @item.TransitionCourseModel.Description - @item.TransitionCourseModel.CreditHour Credit Hours 
+					    </th> 
+					    <th>@Html.DropDownListFor(model => model.Transition, item.TransitionOptionSelectListItem, "-- Select One --")</th>
+                    </tr>
+                </table>
+                <br />
+            }
         }
     </div>
 
     <div class="comment-box">
-        @Html.Raw("Comment: <br />" )
+        @Html.Raw("Comment: <br />")
         @Html.EditorFor(modelItem => modelItem.ReviewerModel.Comment)
     </div>
     

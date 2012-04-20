@@ -18,6 +18,8 @@ namespace GraduateSubmissionsMVC.Models
 
         public List<TransitionCourses> TransitionCoursesList { get; set; }
 
+        public List<TransitionCourses> TransitionCoursesExist { get; set; }
+
         public List<TransitionCourses> TransitionCourseList(int departmentID) 
         {
                 var grabTransitionCourse = (from a in db.TransitionCourse
@@ -100,7 +102,7 @@ namespace GraduateSubmissionsMVC.Models
                 return list; //datasource
         }
 
-        public List<SelectList> TransitionOptionListExists(int count, int id)
+        public List<TransitionCourses> TransitionOptionListExists(int count, int reviewID, int applicationID)
         {
             var grabTransitionOptions = from a in db.TransitionOption
                                         select a;
@@ -109,25 +111,43 @@ namespace GraduateSubmissionsMVC.Models
 
             List<TransitionOptionModel> grabTransitionOptionsExists = (from a in db.TransitionReview
                                                                        join b in db.TransitionOption on a.TransitionOptionModelID equals b.ID
-                                                                       where (a.ApplicationID == this.Application.ID) && (a.ReviewModelID == id)
+                                                                       where (a.ApplicationID == applicationID) && (a.ReviewModelID == reviewID)
                                                                        select b).ToList();
 
-            var grabTransitionCourses = from a in db.TransitionCourse
-                                        select a;
+            List<TransitionReviewModel> transitionReviewList = (from a in db.TransitionReview
+                                                                where (a.ApplicationID == applicationID) && (a.ReviewModelID == reviewID)
+                                                                select a).ToList();
 
-            for(int i = 0, k = 0; i < grabTransitionOptions.ToList().Count; ++i, ++k)
+            List<TransitionCourseModel> transitionCourseList = (from a in db.TransitionReview
+                                                            join b in db.TransitionCourse on a.TransitionCourseModelID equals b.ID
+                                                            where (a.ApplicationID == applicationID) && (a.ReviewModelID == reviewID)
+                                                            select b).ToList();
+
+            List<TransitionCourses> tList = new List<TransitionCourses>();
+
+            int k = 0;
+            foreach (var a in transitionReviewList)
             {
-                transitionOptionNames.Add(new SelectListItem() { Value = grabTransitionOptions.ToList()[i].ID.ToString(), Text = grabTransitionOptions.ToList()[i].Name, Selected = grabTransitionOptions.ToList()[i].ID.ToString().Equals(grabTransitionOptionsExists[i].ID.ToString())});
+                for (int i=0; i < grabTransitionOptions.ToList().Count; ++i)
+                {
+                    if (a.answered == false)
+                    {
+                        transitionOptionNames.Add(new SelectListItem() { Value = grabTransitionOptions.ToList()[i].ID.ToString(), Text = grabTransitionOptions.ToList()[i].Name });
+                    }
+                    else
+                    {
+                        transitionOptionNames.Add(new SelectListItem() { Value = grabTransitionOptions.ToList()[i].ID.ToString(), Text = grabTransitionOptions.ToList()[i].Name, Selected = grabTransitionOptions.ToList()[i].ID.ToString().Equals(a.TransitionOptionModelID.ToString())});
+                    }
+                }
+
+                tList.Add(new TransitionCourses() { TransitionCourseModel = transitionCourseList[k], TransitionOptionSelectListItem = transitionOptionNames });
+                transitionOptionNames = new List<SelectListItem>();
+                k++;
             }
 
-            List<SelectList> list = new List<SelectList>();
-            for (int i = 0; i < count; ++i)
-            {
-                list.Add(new SelectList(transitionOptionNames));
-            }
+            TransitionCoursesExist = tList;
 
-
-            return list; //datasource
+            return tList; //datasource
         }
 
         public int reviewerDepartmentID { get; set; }
