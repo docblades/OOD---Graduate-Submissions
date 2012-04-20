@@ -245,7 +245,7 @@ namespace GraduateSubmissionsMVC.Controllers
         {
             AllReviewViewModel arvm = new AllReviewViewModel();
             arvm.grabApplication(id);
-            arvm.grabReviewers(id, User.Identity.Name);
+            arvm.grabReviewers(id);
             return View(arvm);
         }
     }

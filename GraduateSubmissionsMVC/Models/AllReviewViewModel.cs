@@ -19,7 +19,7 @@ namespace GraduateSubmissionsMVC.Models
             return Application;
         }
 
-        public List<ReviewStateWrapper> grabReviewers(int appId, string user)
+        public List<ReviewStateWrapper> grabReviewers(int appId)
         {
             List<ReviewerModel> reviews = (from a in db.Reviewer
                           where a.ApplicationID == appId
@@ -36,7 +36,7 @@ namespace GraduateSubmissionsMVC.Models
                                           where (t.ApplicationID == appId) && (t.ReviewModelID == a.ID)
                                           select t).ToList().Count;
 
-                 var profile = Profile.GetProfile(user);
+                 var profile = Profile.GetProfile(a.User);
 
                  ReviewList.Add(new ReviewStateWrapper() { user = a.User, FirstName = profile.FirstName, LastName = profile.LastName, date = a.Date, percentage = (percentagePart / percentageWhole) * 100 }); 
             }

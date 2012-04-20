@@ -15,15 +15,15 @@
             <th>Date Reviewed</th>
             <th>Percent Complete</th>
         </tr>
-        <tr>
             @foreach (var reviewers in Model.ReviewList)
             {
+                <tr>
                 <td>@reviewers.user</td>
                 <td>@reviewers.FirstName</td>
                 <td>@reviewers.LastName</td>
                 <td>@reviewers.date</td>
                 <td>@reviewers.percentage %</td>
+                </tr>
             }
-        </tr>
     </table>
 </div>
