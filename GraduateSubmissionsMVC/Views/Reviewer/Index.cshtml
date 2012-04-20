@@ -12,10 +12,7 @@
             Term
         </th>
         <th>
-            First Name
-        </th>
-        <th>
-            Last Name
+            Applicant
         </th>
         <th>
             Student ID
@@ -32,10 +29,7 @@
             @Html.Raw(item.Term.Name + " " + item.Term.Date)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.Application.firstname)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Application.lastname)
+            @Html.ActionLink(item.Application.firstname + " " + item.Application.lastname, "AllReviews", "Reviewer", new { id = item.Application.ID }, null)
         </td>
         <td>
             @Html.DisplayFor(modelItem => item.Application.studentNumber)

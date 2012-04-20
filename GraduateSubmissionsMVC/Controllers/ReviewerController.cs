@@ -240,5 +240,13 @@ namespace GraduateSubmissionsMVC.Controllers
                 return RedirectToAction("Index");
             }
         }
+
+        public ActionResult AllReviews(int id)
+        {
+            AllReviewViewModel arvm = new AllReviewViewModel();
+            arvm.grabApplication(id);
+            arvm.grabReviewers(id, User.Identity.Name);
+            return View(arvm);
+        }
     }
 }

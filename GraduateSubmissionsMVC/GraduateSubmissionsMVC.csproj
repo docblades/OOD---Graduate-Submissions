@@ -106,6 +106,7 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\Account\AccountModels.cs" />
+    <Compile Include="Models\AllReviewViewModel.cs" />
     <Compile Include="Models\General\Application.cs" />
     <Compile Include="Models\ApplicationDepartment.cs" />
     <Compile Include="Models\ApplicationViewHelper.cs" />
@@ -283,6 +284,9 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Views\Reviewer\Review.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Reviewer\AllReviews.cshtml" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" />
