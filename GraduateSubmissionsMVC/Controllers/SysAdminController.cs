@@ -6,6 +6,7 @@ using System.Web.Mvc;
 
 namespace GraduateSubmissionsMVC.Controllers
 {
+    [Authorize(Roles = "Sys Admin")]
     public class SysAdminController : Controller
     {
         //

@@ -9,9 +9,9 @@ using System.Data;
 
 namespace GraduateSubmissionsMVC.Controllers
 {
+    [Authorize(Roles = "Reviewer")]
     public class ReviewerController : Controller
     {
-
         GraduateContext db = new GraduateContext();
 
         //

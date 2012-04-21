@@ -10,6 +10,7 @@ using GraduateSubmissionsMVC.Models;
 namespace GraduateSubmissionsMVC.Controllers
 { 
     //CRUD - Department
+    [Authorize(Roles = "Sys Admin")]
     public class DepartmentController : Controller
     {
         private GraduateContext db = new GraduateContext();

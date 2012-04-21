@@ -8,7 +8,8 @@ using System.Web.Mvc;
 using GraduateSubmissionsMVC.Models;
 
 namespace GraduateSubmissionsMVC.Controllers
-{ 
+{
+    [Authorize(Roles = "Sys Admin")]
     public class TransitionCourseController : Controller
     {
         private GraduateContext db = new GraduateContext();

@@ -2,4 +2,10 @@
     ViewBag.Title = "System Administrator";
 }
 
-<h2>This is now on the home page. Please click on home.</h2>
+<h2>Sysadmin</h2>
+
+    <p>@Html.ActionLink("Manage school terms", "Index", "Term")</p>
+	<p>@Html.ActionLink("Manage departments", "Index", "Department")</p>
+	<p>@Html.ActionLink("Manage transition courses", "Index", "TransitionCourse")</p>
+	<p>@Html.ActionLink("Manage transition course options", "Index", "TransitionOption")</p>
+	<p>@Html.ActionLink("Manage users", "Users", "Account")</p>

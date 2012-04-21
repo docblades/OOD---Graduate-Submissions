@@ -9,10 +9,18 @@ namespace GraduateSubmissionsMVC.Controllers
 	
     public class HomeController : Controller
     {
-
         public ActionResult Index()
         {
-            return View();
+            if (Request.IsAuthenticated && User.IsInRole("Sys Admin"))
+            {
+                return RedirectToAction("Index", "SysAdmin");
+            }
+            else if (Request.IsAuthenticated && User.IsInRole("Reviewer"))
+            {
+                return RedirectToAction("Index", "Reviewer");
+            }
+            else
+                return View();
         }
 
         public ActionResult DashBoard()

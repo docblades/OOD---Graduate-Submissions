@@ -55,7 +55,7 @@ namespace GraduateSubmissionsMVC.Controllers
                     }
                     else
                     {
-                        return RedirectToAction("Index", "Home");
+                            return RedirectToAction("Index", "Home");
                     }
                 }
                 else
@@ -81,7 +81,7 @@ namespace GraduateSubmissionsMVC.Controllers
 
         //
         // GET: /Account/Register
-
+        [Authorize(Roles = "Sys Admin")]
         public ActionResult Register()
         {
             //set up the drop down list for roles
@@ -97,6 +97,7 @@ namespace GraduateSubmissionsMVC.Controllers
         // POST: /Account/Register
 
         [HttpPost]
+        [Authorize(Roles = "Sys Admin")]
         public ActionResult Register(RegisterModel model)
         {
             if (ModelState.IsValid)
@@ -203,6 +204,7 @@ namespace GraduateSubmissionsMVC.Controllers
 
         //view all the user accounts
 		[Authorize]
+        [Authorize(Roles = "Sys Admin")]
         public ActionResult Users()
         {
             List<Users> userlist = new List<Users>();

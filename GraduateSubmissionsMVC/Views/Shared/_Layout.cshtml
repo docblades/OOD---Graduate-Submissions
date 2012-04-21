@@ -13,16 +13,9 @@
 			<div id="logindisplay">
 				@if (Request.IsAuthenticated) {
 					<text>Welcome <strong>@User.Identity.Name</strong>!
-					@Html.ActionLink("Log Off", "LogOff", "Account") </text>
-				} else {
-					@:[ @Html.ActionLink("Log On", "LogOn", "Account") ]
+					[@Html.ActionLink("Log Off", "LogOff", "Account")] </text>
 				}
 			</div>
-			<nav>
-				<ul id="menu">
-					<li>@Html.ActionLink("Home", "Index", "Home")</li>
-				</ul>
-			</nav>
 		</header>
 		<section id="main">
 			@RenderBody()
