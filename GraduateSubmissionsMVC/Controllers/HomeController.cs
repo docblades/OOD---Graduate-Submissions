@@ -19,6 +19,14 @@ namespace GraduateSubmissionsMVC.Controllers
             {
                 return RedirectToAction("Index", "Reviewer");
             }
+            else if (Request.IsAuthenticated && User.IsInRole("Admin Assist"))
+            {
+                return RedirectToAction("Index", "Application");
+            }
+            else if (Request.IsAuthenticated && User.IsInRole("Decider"))
+            {
+                return RedirectToAction("Index", "Decider");
+            }
             else
                 return View();
         }

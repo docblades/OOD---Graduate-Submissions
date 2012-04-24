@@ -9,14 +9,12 @@ using System.Data;
 
 namespace GraduateSubmissionsMVC.Controllers
 {
-    [Authorize(Roles = "Reviewer")]
-    public class ReviewerController : Controller
+    public class DeciderController : Controller
     {
         GraduateContext db = new GraduateContext();
-
         //
-        // GET: /Reviewer/
-		
+        // GET: /Decider/
+        [Authorize(Roles = "Decider")]
         public ActionResult Index()
         {
             List<ReviewViewModel> rvmList = new List<ReviewViewModel>();
@@ -41,8 +39,7 @@ namespace GraduateSubmissionsMVC.Controllers
             return View(rvmList);
         }
 
-		
-        public ActionResult Review(int id)
+        public ActionResult Decide(int id)
         {
             ReviewViewModel rvm = new ReviewViewModel();
 
@@ -59,8 +56,8 @@ namespace GraduateSubmissionsMVC.Controllers
                 var profile = Profile.GetProfile(User.Identity.Name);
 
                 int reviewerDepartmentID = (from a in db.DepartmentModel
-                                                where a.Name == profile.Department
-                                                select a.ID).ToList()[0];
+                                            where a.Name == profile.Department
+                                            select a.ID).ToList()[0];
 
                 foreach (var app in grabApplication)
                 {
@@ -86,8 +83,8 @@ namespace GraduateSubmissionsMVC.Controllers
                                                 select a.ID).ToList()[0],
 
                         ReviewerModel = (from a in db.Reviewer
-                                        where (a.User == User.Identity.Name) && (a.ApplicationID == id)
-                                        select a).ToList()[0],
+                                         where (a.User == User.Identity.Name) && (a.ApplicationID == id)
+                                         select a).ToList()[0],
 
                         TransitionCoursesList = rvm.TransitionOptionListExists(rvm.TransitionCourseList(reviewerDepartmentID).Count, grabReviews.ToList()[0].ID, app.ID)
                     };
@@ -142,9 +139,8 @@ namespace GraduateSubmissionsMVC.Controllers
             return View(rvm);
         }
 
-		
         [HttpPost]
-        public ActionResult Review(ReviewViewModel rvm)
+        public ActionResult Decide(ReviewViewModel rvm)
         {
 
             var grabReviews = from a in db.Reviewer
@@ -153,11 +149,12 @@ namespace GraduateSubmissionsMVC.Controllers
             if (grabReviews.Count() > 0)
             {
                 int rmExists = (from a in db.Reviewer
-                                          where a.User.Equals(User.Identity.Name) && a.ApplicationID == rvm.Application.ID
-                                          select a.ID).ToList()[0];
+                                where a.User.Equals(User.Identity.Name) && a.ApplicationID == rvm.Application.ID
+                                select a.ID).ToList()[0];
                 //rmExists = new ReviewerModel() { Comment = rvm.ReviewerModel.Comment, Date = DateTime.Now, User = User.Identity.Name, ApplicationID = rvm.Application.ID };
                 ReviewerModel rm = db.Reviewer.Find(rmExists);
                 rm.Comment = rvm.ReviewerModel.Comment;
+                rm.DecisionComment = rvm.ReviewerModel.DecisionComment;
                 rm.Date = DateTime.Now;
                 db.Entry(rm).State = EntityState.Modified;
                 db.SaveChanges();
@@ -165,8 +162,8 @@ namespace GraduateSubmissionsMVC.Controllers
                 List<TransitionCourses> transitionCourseList = rvm.TransitionCourseList(Int32.Parse(rvm.DepartmentNamesList[0].Value));
 
                 List<int> transitionReviewList = (from a in db.TransitionReview
-                                                 where (a.ApplicationID == rvm.Application.ID) && (a.ReviewModelID == rmExists)
-                                                 select a.ID).ToList();
+                                                  where (a.ApplicationID == rvm.Application.ID) && (a.ReviewModelID == rmExists)
+                                                  select a.ID).ToList();
                 int i = 0;
                 foreach (var a in transitionReviewList)
                 {
@@ -202,7 +199,7 @@ namespace GraduateSubmissionsMVC.Controllers
             else
             {
 
-                ReviewerModel rm = new ReviewerModel() { Comment = rvm.ReviewerModel.Comment, Date = DateTime.Now, User = User.Identity.Name, ApplicationID = rvm.Application.ID };
+                ReviewerModel rm = new ReviewerModel() { Comment = rvm.ReviewerModel.Comment, DecisionComment = rvm.ReviewerModel.Comment, Date = DateTime.Now, User = User.Identity.Name, ApplicationID = rvm.Application.ID };
                 db.Reviewer.Add(rm);
                 db.SaveChanges();
                 List<TransitionCourses> transitionCourseList = rvm.TransitionCourseList(Int32.Parse(rvm.DepartmentNamesList[0].Value));
@@ -241,12 +238,13 @@ namespace GraduateSubmissionsMVC.Controllers
             }
         }
 
-        public ActionResult AllReviews(int id)
+        public ActionResult AllDecisions(int id)
         {
             AllReviewViewModel arvm = new AllReviewViewModel();
             arvm.grabApplication(id);
             arvm.grabReviewers(id);
             return View(arvm);
         }
+
     }
 }

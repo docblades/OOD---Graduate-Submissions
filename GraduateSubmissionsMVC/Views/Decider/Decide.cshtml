@@ -1,12 +1,12 @@
 ﻿@model GraduateSubmissionsMVC.Models.ReviewViewModel
 
 @{
-    ViewBag.Title = "Review";
+    ViewBag.Title = "Decide";
 }
 
 <h2>Review -- @Model.Application.firstname @Html.Raw(" ") @Model.Application.lastname</h2>
 
-@using (Html.BeginForm("Review", "Reviewer", FormMethod.Post))
+@using (Html.BeginForm("Decide", "Decider", FormMethod.Post))
 {
     @Html.HiddenFor(x => x.Application.ID)
     <div class="review-box">
@@ -84,6 +84,11 @@
     <div class="comment-box">
         @Html.Raw("General Comments: <br />")
         @Html.EditorFor(modelItem => modelItem.ReviewerModel.Comment)
+    </div>
+    
+    <div class="comment-box">
+        @Html.Raw("Decision Comments: <br />")
+        @Html.EditorFor(modelItem => modelItem.ReviewerModel.DecisionComment)
     </div>
     
     <div class="upload-unit" style="margin-left:auto; margin-right:auto; width:200px">
